@@ -1,0 +1,50 @@
+{% extends "user/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/donatemoney.css' %}" />
+{% endblock css %}
+
+{% block content %}
+
+      <div class="box">
+        <h3>Select Your Amount or Input Below</h3>
+        <div class="amount">
+          <div class="radio-group">
+            <label class="radio">
+              <input type="radio" value="s" name="ss" />
+              100tk
+              <span></span>
+            </label>
+            <label class="radio">
+              <input type="radio" value="s" name="ss" />
+              200tk
+              <span></span> </label
+            ><br />
+            <label class="radio">
+              <input type="radio" value="s" name="ss" />
+              500tk
+              <span></span>
+            </label>
+            <label class="radio">
+              <input type="radio" value="s" name="ss" />
+              1000tk
+              <span></span>
+            </label>
+            <br />
+            <label class="radio">
+              <input type="radio" value="s" name="ss" />
+              5000tk
+              <span></span>
+            </label>
+            <br />
+            <div class="text-center">
+              <input type="text" placeholder="or enter here" />
+              <br /><br />
+
+              <a class="btn cs" href="#">Proceed to pay</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  {% endblock content %}

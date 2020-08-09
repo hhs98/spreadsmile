@@ -1,0 +1,65 @@
+{% extends "user/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
+{% endblock css %}
+
+{% block content %}
+      <div class="row" style="margin-top: 100px;">
+        <div class="col">
+          <div class="jumbotron">
+            <h1 class="display-4">Spread Smiles</h1>
+            <p class="lead">
+              We are here to help you to find out the right place to contribute
+              so that your contribution can bring smile to some faces
+            </p>
+
+            <a class="btn ss" href="/allevents"
+              >Lets collaborate to donate</a
+            >
+          </div>
+        </div>
+        <div class="col pic">
+          <img src="{% static 'images/f.jpg' %}" class="img-fluid" alt="Responsive image" />
+        </div>
+      </div>
+
+      <p class="text-center so">Some events that might interested you!</p>
+
+      <div class="main text-center">
+        <div class="row">
+        
+        {% for event in events|slice:":3"  %}
+        
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card">
+          <div class="image">
+            <img src="{% static 'images/g.jpg' %}" alt="Coming soon" />
+          </div>
+          <div class="title">
+            <h1>{{event.event_title}}</h1>
+          </div>
+          <div class="des">
+            <h4>{{event.organization_name}}</h4>
+            <p>{{event.description|slice:":100"}}</p>
+            <a href="/event/{{event.id}}" class="btn btn-primary don"
+              >Details</a
+            >
+          </div>
+        </div>
+          </div>
+        {% endfor %}
+        </div>
+        
+      
+      </div>
+
+      <div class="text-center">
+        <a class="btn cs" href="/allevents" role="button"
+          >View All Events</a
+        >
+      </div>
+
+      
+{% endblock content %}

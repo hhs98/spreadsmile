@@ -1,0 +1,94 @@
+{% extends "user/base.html" %}
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+</head>
+<body>
+    <form method="POST" action="/createevent/">
+		{% csrf_token %}
+		{{form}}
+		<input type="submit" name="Create Event">
+	</form>
+</body>
+</html> {% endcomment %}
+
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/insertevent.css' %}" />
+{% endblock css %}
+
+{% block content %}
+      <div class="head">
+        <h1>Insert your Events here</h1>
+      </div>
+      <div class="main">
+      
+        <form method="POST" action="/createevent/" class="needs-validation" novalidate>
+        {% csrf_token %}
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationTooltip01">Event Title</label>
+              {% comment %} <input
+                type="text"
+                class="form-control"
+                id="validationTooltip01"
+                placeholder="Enter event name"
+                required
+              /> {% endcomment %}
+              {{form.event_title}}
+            </div>
+            <div class="col-md-6 mb-3 email">
+              <label for="validationTooltip02">Organization Name</label>
+              {% comment %} <input
+                type="email"
+                class="form-control"
+                id="validationTooltip02"
+                placeholder="Enter organization name"
+                required
+              /> {% endcomment %}
+              {{form.organization_name}}
+            </div>
+          </div>
+          <br />
+          <div class="form-group text-center">
+            <label for="validationTooltip03"> Event Type</label> <br />
+            <select class="custom-select" id="validationTooltip03" size="1">
+              <option value="1">Money</option>
+              <option value="2">Belongings</option></select
+            >
+          </div>
+          <br />
+          <div class="form-group co">
+            {% comment %} <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              placeholder="Enter moto of the event"
+              rows="5"
+              cols="20"
+              required
+            ></textarea> {% endcomment %}
+            {{form.description}}
+          </div>
+          <div class="col-md-6 mb-3 ce">
+            <label for="validationTooltip05">
+              <span class="material-icons"> </span>Choose a Photo</label
+            >
+            <input
+              type="file"
+              class="form-control"
+              id="validationTooltip05"
+              accept="image/*"
+            />
+          </div>
+
+          <div class="text-center">
+            <input class="btn cs" type="submit" value="Submit to Insert">
+          </div>
+        </form>
+    </div>
+{% endblock content %}

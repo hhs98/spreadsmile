@@ -1,0 +1,156 @@
+{% extends "user/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/organizationhomepage.css' %}" />
+{% endblock css %}
+
+{% block content %}
+      <div class="row text-center align-items-center">
+        <div class="col">
+          <button
+            type="button"
+            class="btn abtn btn-lg"
+            data-toggle="collapse"
+            data-target="#table1"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Manage Events</button
+          ><br /><br />
+          <button
+            type="button"
+            class="btn btn-lg"
+            data-toggle="collapse"
+            data-target="#table2"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            View Donor Details
+          </button>
+        </div>
+        <div class="col">
+          <img src="{% static 'images/ssms.jpg' %}" class="round-circle" alt="coming soon" />
+          
+          
+          <h3>Hello {{organization.orgname}}</h3>
+        </div>
+      </div>
+      <br /><br />
+      <div class="collapse evnts" id="table1">
+        <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col" class="a">No.</th>
+              <th scope="col" class="a">Event Title</th>
+              <th scope="col" class="a">Event details</th>
+              <th scope="col" class="a">Event Type</th>
+              <th scope="col">
+                <a href="insertevent.html" class="btn btn-warning insert">
+                  Create a New Event
+                </a>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for event in events  %}
+            <tr>
+              <th class="a" scope="row">{{event.id}}</th>
+              <td class="a">{{event.event_title}}</td>
+              <td class="a">{{event.description|slice:":70"}}</td>
+              <td class="a">Money</td>
+              <th scope="col">
+                <button type="button" class="btn btn-primary mr-2">
+                  Update</button
+                ><button type="button" class="btn btn-danger">Delete</button>
+              </th>
+            </tr>
+          {% endfor %}
+            
+            {% comment %} <tr>
+              <th class="a" scope="row">2</th>
+              <td class="a">X</td>
+              <td class="a">Y</td>
+              <td class="a">Money</td>
+              <th scope="col">
+                <button type="button" class="btn btn-primary mr-2">
+                  Update</button
+                ><button type="button" class="btn btn-danger">Delete</button>
+              </th>
+            </tr>
+            <tr>
+              <th class="a" scope="row">3</th>
+              <td class="a">X</td>
+              <td class="a">Y</td>
+              <td class="a">Money</td>
+              <th scope="col">
+                <button type="button" class="btn btn-primary mr-2">
+                  Update</button
+                ><button type="button" class="btn btn-danger">Delete</button>
+              </th>
+            </tr>
+          </tbody> {% endcomment %}
+        </table>
+      </div>
+      <br /><br />
+      <div class="collapse donordetails" id="table2">
+        <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col" class="a">No.</th>
+              <th scope="col" class="a">Donor Name</th>
+              <th scope="col" class="a">Address</th>
+              <th scope="col" class="a">Contact Number</th>
+              <th scope="col" class="a">Opinion</th>
+              <th scope="col" class="a">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="a">1</th>
+              <td class="a">Keya</td>
+              <td class="a">Uttara</td>
+              <td class="a">0100000000</td>
+              <td class="a">Lorem ipsum dolor</td>
+              <th scope="col">
+                <a href="viewmore.html"
+                  ><button type="button" class="btn btn-primary mr-2">
+                    View More
+                  </button></a
+                ><button type="button" class="btn btn-success">
+                  Send to Admin
+                </button>
+              </th>
+            </tr>
+            <tr>
+              <th scope="row" class="a">2</th>
+              <td class="a">Maiesha</td>
+              <td class="a">Uttara</td>
+              <td class="a">010000000</td>
+              <td class="a">Lorem ipsum dolor</td>
+              <th scope="col">
+                <button type="button" class="btn btn-primary mr-2">
+                  View More</button
+                ><button type="button" class="btn btn-success">
+                  Send to Admin
+                </button>
+              </th>
+            </tr>
+            <tr>
+              <th scope="row" class="a">3</th>
+              <td class="a">Saida</td>
+              <td class="a">Tongi</td>
+              <td class="a">019900000</td>
+              <td class="a">Lorem ipsum dolor</td>
+              <th scope="col">
+                <button type="button" class="btn btn-primary mr-2">
+                  View More</button
+                ><button type="button" class="btn btn-success">
+                  Send to Admin
+                </button>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {% endblock content %}
