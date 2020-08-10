@@ -52,7 +52,7 @@ def donatebelongings(request):
 #     return render(request, 'user/createevent.html', context)
 
 
-def organization(request, pk):
+def orghome(request, pk):
     organization = Organization.objects.get(id=pk)
     events = organization.event_set.all()
     event_count = events.count()

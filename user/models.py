@@ -4,23 +4,23 @@ from django.db import models
 
 
 class Organization(models.Model):
-    name = models.CharField(max_length=200, null=True)
-    email = models.CharField(max_length=200, null=True)
-    contact = models.CharField(max_length=200, null=True)
-    address = models.CharField(max_length=200, null=True)
-    license_no = models.CharField(max_length=200, null=True)
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
+    orgname = models.CharField(max_length=200, null=True)
+    orgemail = models.CharField(max_length=200, null=True)
+    orgcontact = models.CharField(max_length=200, null=True)
+    orgaddress = models.CharField(max_length=200, null=True)
+    orglicense = models.CharField(max_length=200, null=True)
+    orgdate = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.orgname
 
 
 class Event(models.Model):
-    organization = models.ForeignKey(
+    organization_name = models.ForeignKey(
         Organization, null=True, on_delete=models.SET_NULL)
-    title = models.CharField(max_length=200)
+    event_title = models.CharField(max_length=200)
     description = models.TextField(max_length=500)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title
+        return self.event_title

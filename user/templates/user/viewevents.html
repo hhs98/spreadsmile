@@ -19,10 +19,10 @@
             <img src="{% static 'images/g.jpg' %}" alt="Coming soon" />
           </div>
           <div class="title">
-            <h1>{{event.title}}</h1>
+            <h1>{{event.event_title}}</h1>
           </div>
           <div class="des">
-            <h4>{{event.organization}}</h4>
+            <h4>{{event.organization_name}}</h4>
             <p>{{event.description|slice:":100"}}</p>
             <a href="{% url 'event' event.id %}" class="btn btn-primary don"
               >Details</a

@@ -6,7 +6,7 @@
 {% block content %}
 <div class="row text-center align-items-center st">
   <div class="col">
-    <h3 class="dis">Hello {{organization.name}}</h3>
+    <h3 class="dis">Hello {{organization.orgname}}</h3>
     <p class="lead">
       We hope that your efforts can assist the unpreveleiged people in their
       forceless state & we believe that you will surely can bring smile to some
@@ -104,7 +104,7 @@
       {% for event in events %}
       <tr>
         <th class="a" scope="row">{{event.id}}</th>
-        <td class="a">{{event.title}}</td>
+        <td class="a">{{event.event_title}}</td>
         <td class="a">{{event.description|slice:":70"}}</td>
         <td class="a">Belongings</td>
         <td>
