@@ -1,7 +1,7 @@
 body {
   background-color: #170c0c;
   font-family: poppins;
-  padding-bottom: 390px;
+  font-size: 15px;
 }
 .navbar {
   background-color: #170c0c;
@@ -47,39 +47,33 @@ span.navbar-toggler-icon {
   background: white;
   padding: 0;
 }
+@media (max-width: 768px) {
+  div.st {
+    margin-top: 300px;
+  }
+}
 .container {
   color: white;
   min-height: 1500px;
 }
-.row {
-  min-height: 200px;
+.dis {
+  font-size: 20px;
+  letter-spacing: 0.5px;
 }
-.abtn {
-  font-family: poppins;
+.lead {
   font-size: 16px;
-  cursor: pointer;
-  background: #ffda15;
-  border: 1px solid white;
-  color: white;
+  letter-spacing: 0.5px;
 }
-.btn-lg {
-  width: 200px;
-  font-family: poppins;
-  font-size: 16px;
-  cursor: pointer;
-  background: #ffda15;
-  color: black;
-  border: 1px solid white;
-}
+
 .btn-lg:hover {
   color: white;
   background-color: black;
   border-color: #ffda15;
 }
 .col img {
-  width: 120px;
-  height: 120x;
-  border-radius: 150px;
+  width: 250px;
+  height: 150px;
+  border-radius: 5px;
   grid-area: image;
   margin-bottom: 10px;
 }
@@ -213,4 +207,41 @@ h2 {
   font-size: 16px;
   color: white;
   padding: 8px 10px;
+}
+.st {
+  margin-bottom: 80px;
+  margin-top: 100px;
+}
+.main {
+  margin-bottom: 25px;
+}
+.card {
+  margin-left: 60px;
+  margin-bottom: 5px;
+  background-color: #1ee86f;
+}
+.card-body h5 {
+  font-size: 17px;
+  color: black;
+  background-size: cover;
+  border-radius: 5px;
+}
+.card-body p {
+  font-size: 16px;
+  color: black;
+}
+.sl {
+  font-size: 15px;
+  cursor: pointer;
+  background: #ffda15;
+  color: black;
+  border: 1px solid black;
+}
+.df {
+  border-color: black;
+}
+.r h5 {
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-weight: 200;
 }

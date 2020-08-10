@@ -1,0 +1,18 @@
+{% extends "user/base.html" %}
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+    <hr>
+    <br><br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+    
+        <input class="btn btn-primary" type="submit" >
+    </form>
+    <br><br>
+    <hr>
+{% endblock %}

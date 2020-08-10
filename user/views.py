@@ -57,7 +57,9 @@ def createevent(request):
 def orghome(request, pk):
     organization = Organization.objects.get(id=pk)
     events = organization.event_set.all()
-    context = {'organization': organization, 'events': events}
+    event_count = events.count()
+    context = {'organization': organization,
+               'events': events, 'event_count': event_count}
     return render(request, 'user/organizationhomepage.html', context)
 
 
@@ -65,3 +67,36 @@ def singleevent(request, pk):
     event = Event.objects.get(id=pk)
     context = {'event': event}
     return render(request, 'user/eventdet.html', context)
+
+
+def create_event(request):
+    form = EventForm()
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context = {'form': form}
+    return render(request, 'user/create_event.html', context)
+
+
+def update_event(request, pk):
+    event = Event.objects.get(id=pk)
+    form = EventForm(instance=event)
+    if request.method == 'POST':
+        form = EventForm(request.POST, instance=event)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'form': form}
+    return render(request, 'user/create_event.html', context)
+
+
+def delete_event(request, pk):
+    event = Event.objects.get(id=pk)
+    if request.method == 'POST':
+        event.delete()
+        return redirect('/orghome/1')
+    context = {'event': event}
+    return render(request, 'user/delete_event.html', context)

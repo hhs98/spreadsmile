@@ -13,5 +13,8 @@ urlpatterns = [
     path('createevent/', views.createevent),
     path('orghome/<str:pk>/', views.orghome),
     path('event/<str:pk>/', views.singleevent, name="event"),
+    path('create_event/', views.create_event),
+    path('update_event/<str:pk>/', views.update_event),
+    path('delete_event/<str:pk>/', views.delete_event),
 
 ]
