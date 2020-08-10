@@ -1,64 +1,16 @@
+{% extends "user/base.html" %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
-<link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-   <link rel="stylesheet" href="{% static 'css/eventdet.css' %}">
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <div class="container">
-    
-<nav class="navbar navbar-expand-md nav ">
- 
-  <a class="navbar-brand" href="homepage.html"><img class="img-fluid t"src="images/a.png" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/eventdet.css' %}" />
+{% endblock css %}
 
-  <div class="collapse navbar-collapse na" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      
-      <li class="nav-item">
-        <a class="nav-link" href="#">What We Do</a>
-      </li>
-       <li class="nav-item">
-              <a class="nav-link" href="gallary.html">Gallary</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="signup.html">Join us</a>
-            </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Donate
-        </a>
-        <div class="dropdown-menu drop" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="viewevents.html">Money</a>
-          
-          <div class="drop"></div>
-          <a class="dropdown-item" href="viewevents.html">Belongings</a>
-        </div>
-      </li>
-      
-    </ul>
-    
-  </div>
-    
-   
-</nav><br>
+{% block content %}
+<br>
    <div class="row">
         <div class="col">
           <div class="jumbotron">
-            <h1 class="display-4">{{event.event_title}}</h1>
+            <h1 class="display-4">{{event.title}}</h1>
             <p class="lead">
               {{event.description}}
             </p>
@@ -110,53 +62,4 @@
             >
      </div>
       
-      <br>
-      <footer>
-        <div class="footer-top">
-          <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12 segment-one">
-              <h2>Spread Smiles</h2>
-            </div>
-            <div class="col-md-3 col-sm-6 ctwoxs-12 segment-two">
-              <h2>Links</h2>
-              <ul>
-                <li><a href="about.html">What we do</a></li>
-                <li><a href="signup.html">Join us</a></li>
-                <li><a href="gallary.html">Gallary</a></li>
-                <li><a href="viewevents.html">Donate</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3 col-sm-6 ctwoxs-12 segment-three">
-              <h2>Contact</h2>
-              <ul>
-                <li>Uttara,Dhaka,Bangladesh</li>
-                <li>01xxxxxxxx</li>
-              </ul>
-            </div>
-            <div class="col-md-3 col-sm-6 ctwoxs-12 segment-four">
-              <h2>Follow us</h2>
-              <p>
-                Follow us on our social media profile in order to keep updated
-                with our recent task
-              </p>
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-   
-    <script
-      src="https://kit.fontawesome.com/832cd3cad9.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
-    
-  </body>
-</html>
+{% endblock content %}

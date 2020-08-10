@@ -8,7 +8,6 @@ from .forms import *
 
 def home(request):
     events = Event.objects.all().order_by('-date_created')
-
     context = {'events': events}
     return render(request, 'user/homepage.html', context)
 
@@ -27,7 +26,6 @@ def signup(request):
 
 def allevents(request):
     events = Event.objects.all().order_by('-date_created')
-
     context = {'events': events}
     return render(request, 'user/viewevents.html', context)
 
@@ -40,24 +38,26 @@ def donatebelongings(request):
     return render(request, 'user/donatebelongings.html')
 
 
-def createevent(request):
+# def createevent(request):
 
-    form = EventForm()
+#     form = EventForm()
 
-    if request.method == 'POST':
-        form = EventForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('/allevents')
+#     if request.method == 'POST':
+#         form = EventForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#         return redirect('/allevents')
 
-    context = {'form': form}
-    return render(request, 'user/createevent.html', context)
+#     context = {'form': form}
+#     return render(request, 'user/createevent.html', context)
 
 
-def orghome(request, pk):
+def organization(request, pk):
     organization = Organization.objects.get(id=pk)
     events = organization.event_set.all()
-    context = {'organization': organization, 'events': events}
+    event_count = events.count()
+    context = {'organization': organization,
+               'events': events, 'event_count': event_count}
     return render(request, 'user/organizationhomepage.html', context)
 
 
