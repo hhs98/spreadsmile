@@ -14,7 +14,8 @@ Steps:
 
 ## Runnning this project
 
-6. Now run this project with `python manage.py runserver`
-7. Now you are ready to follow this [Video](https://drive.google.com/file/d/1coWXVfEjEysmnmyV-bebagUFDiqCaarD/view?usp=sharing)
+6. Open this folder in vscode with `code .`
+7. Now run this project with `python manage.py runserver`
+8. Now you are ready to follow this [Video](https://drive.google.com/file/d/1coWXVfEjEysmnmyV-bebagUFDiqCaarD/view?usp=sharing)
 
-# Good Luck
+# Good Luck!
