@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from .models import *
 from .forms import *
@@ -97,6 +98,7 @@ def delete_event(request, pk):
     event = Event.objects.get(id=pk)
     if request.method == 'POST':
         event.delete()
-        return redirect('/orghome/1')
+        bar = event.organization_name.id
+        return redirect('orghome', pk='bar')
     context = {'event': event}
     return render(request, 'user/delete_event.html', context)
