@@ -1,0 +1,53 @@
+{% extends "user/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/registration.css' %}" />
+{% endblock css %}
+
+{% block content %}
+      <div class="cont">
+        <div class="form sign-in">
+          <h5>Sign In</h5>
+          <form method="POST" action="">
+          {% csrf_token %}
+          <label>
+            <span>Username</span>
+            <input type="text" name="username" />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" />
+          </label>
+          <div class="sin">
+            <a href="viewevents.html"
+              ><button class="submit" type="submit">Sign In</button></a
+            >
+            <a href="#"><p class="forgot-pass">Forgot Password ?</p></a>
+          </div>
+          </form>
+          <div class="text-center">
+          {% for message in messages %}
+            {{message}}
+          {% endfor %}
+          </div>
+          <div class="text-center">Don't have an account <a href="/register">SignUp</a></div>
+          <div class="social-media">
+            <ul>
+              <a href="#"
+                ><li><img src="{% static 'images/facebook.png' %}" /></li
+              ></a>
+              <a href=""
+                ><li><img src="{% static 'images/twitter.png' %}" /></li
+              ></a>
+              <a href="#"
+                ><li><img src="{% static 'images/linkedin.png' %}" /></li
+              ></a>
+              <a href="#"
+                ><li><img src="{% static 'images/instagram.png' %}" /></li
+              ></a>
+            </ul>
+          </div>
+        </div>
+      </div>
+{% endblock %}

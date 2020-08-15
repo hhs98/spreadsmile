@@ -24,7 +24,7 @@
         <a class="nav-link" href="/gallary">Gallary</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/signup">Join us</a>
+        <a class="nav-link" href="/register">Join us</a>
       </li>
       <li class="nav-item dropdown">
         <a
@@ -47,4 +47,6 @@
       </li>
     </ul>
   </div>
+  <span>Hello, {{request.user}}</span>
+  <span><a href="/logout">Logout</a></span>
 </nav>

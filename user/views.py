@@ -1,10 +1,50 @@
+from .forms import *
+from .models import *
+from .decorators import unauthenticated_user
+
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 
-from .models import *
-from .forms import *
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
+
+@unauthenticated_user
+def registerPage(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/login')
+    context = {'form': form}
+    return render(request, 'user/register.html', context)
+
+
+@unauthenticated_user
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('back', pk=user.id)
+        else:
+            messages.info(request, 'Username OR password is incorrect')
+
+    context = {}
+    return render(request, 'user/login.html', context)
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect('/login')
 
 
 def home(request):
@@ -41,6 +81,7 @@ def donatebelongings(request):
     return render(request, 'user/donatebelongings.html')
 
 
+@login_required(login_url='/login')
 def createevent(request):
 
     form = EventForm()
@@ -55,6 +96,7 @@ def createevent(request):
     return render(request, 'user/createevent.html', context)
 
 
+@login_required(login_url='/login')
 def orghome(request, pk):
     organization = Organization.objects.get(id=pk)
     events = organization.event_set.all()
@@ -70,6 +112,7 @@ def singleevent(request, pk):
     return render(request, 'user/eventdet.html', context)
 
 
+@login_required(login_url='/login')
 def create_event(request):
     form = EventForm()
     if request.method == 'POST':
@@ -82,6 +125,7 @@ def create_event(request):
     return render(request, 'user/create_event.html', context)
 
 
+@login_required(login_url='/login')
 def update_event(request, pk):
     event = Event.objects.get(id=pk)
     form = EventForm(instance=event)
@@ -94,11 +138,12 @@ def update_event(request, pk):
     return render(request, 'user/create_event.html', context)
 
 
+@login_required(login_url='/login')
 def delete_event(request, pk):
     event = Event.objects.get(id=pk)
     if request.method == 'POST':
         event.delete()
         bar = event.organization_name.id
-        return redirect('orghome', pk='bar')
+        return redirect('back', pk=bar)
     context = {'event': event}
     return render(request, 'user/delete_event.html', context)

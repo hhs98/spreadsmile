@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('register/', views.registerPage),
+    path('login/', views.loginPage),
+    path('logout/', views.logoutUser),
 
     path('', views.home),
     path('about/', views.about),
@@ -11,7 +14,7 @@ urlpatterns = [
     path('donatemoney/', views.donatemoney),
     path('donatebelongings/', views.donatebelongings),
     path('createevent/', views.createevent),
-    path('orghome/<str:pk>/', views.orghome),
+    path('orghome/<str:pk>/', views.orghome, name="back"),
     path('event/<str:pk>/', views.singleevent, name="event"),
     path('create_event/', views.create_event),
     path('update_event/<str:pk>/', views.update_event),
