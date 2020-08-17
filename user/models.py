@@ -26,3 +26,14 @@ class Event(models.Model):
 
     def __str__(self):
         return self.event_title
+
+
+class MoneyDonatorInfo(models.Model):
+    amount = models.IntegerField(null=True, blank=True)
+    name = models.CharField(max_length=264, blank=True)
+    email = models.CharField(max_length=264, blank=True)
+    contact = models.CharField(max_length=264, blank=True)
+    opinion = models.TextField(max_length=500, blank=True)
+
+    def __str__(self):
+        return self.name

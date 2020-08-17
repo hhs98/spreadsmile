@@ -10,6 +10,14 @@ from django.contrib.auth import authenticate, login, logout
 
 from django.contrib.auth.decorators import login_required
 
+# for payment
+
+import requests
+from sslcommerz_python.payment import SSLCSession
+from decimal import Decimal
+import socket
+from django.views.decorators.csrf import csrf_exempt
+
 
 # Create your views here.
 
@@ -83,7 +91,59 @@ def allevents(request):
 
 
 def donatemoney(request):
-    return render(request, 'user/donatemoney.html')
+    form = MoneyDonatorForm
+    if request.method == 'POST':
+        form = MoneyDonatorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            donator = MoneyDonatorInfo.objects.get(
+                name=request.POST.get('name'), email=request.POST.get('email'), contact=request.POST.get('contact'))
+            return redirect('pay', pk=donator.id)
+    context = {'form': form}
+    return render(request, 'user/donatemoney.html', context)
+
+
+def payment(request, pk):
+    store_id = 'spere5f3aeaafa6b1d'
+    api_key = 'spere5f3aeaafa6b1d@ssl'
+    mypayment = SSLCSession(sslc_is_sandbox=True,
+                            sslc_store_id=store_id, sslc_store_pass=api_key)
+
+    status_url = request.build_absolute_uri(reverse("status"))
+
+    mypayment.set_urls(success_url=status_url, fail_url=status_url,
+                       cancel_url=status_url, ipn_url=status_url)
+
+    donator = MoneyDonatorInfo.objects.get(id=pk)
+    donate_amount = donator.amount
+    mypayment.set_product_integration(total_amount=Decimal(donate_amount), currency='BDT', product_category='donation',
+                                      product_name='Donate Money', num_of_item=1, shipping_method='None', product_profile='None')
+
+    mypayment.set_customer_info(name=donator.name, email=donator.email, address1='demo address 1',
+                                address2='demo address 2', city='Dhaka', postcode='1200', country='Bangladesh', phone=donator.contact)
+
+    mypayment.set_shipping_info(shipping_to=donator.name, address='demo address',
+                                city='Dhaka', postcode='1200', country='Bangladesh')
+
+    response_data = mypayment.init_payment()
+    return redirect(response_data['GatewayPageURL'])
+
+
+@csrf_exempt
+def complete(request):
+    if request.method == 'POST' or request.method == 'post':
+        payment_data = request.POST
+        status = payment_data['status']
+        if status == 'VALID':
+            val_id = payment_data['val_id']
+            tran_id = payment_data['tran_id']
+            messages.success(
+                request, 'Your Donation has been Completed Successfully, Redirecting to home page...')
+        elif status == 'FAILED':
+            messages.warning(
+                request, 'Your Donation has been Failed, Please try again, Redirecting to home page...')
+    context = {}
+    return render(request, 'user/complete.html', context)
 
 
 def donatebelongings(request):

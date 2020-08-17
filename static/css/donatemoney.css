@@ -7,87 +7,54 @@ body {
   background-color: #170c0c;
   padding-bottom: 220px;
   font-family: poppins;
+  color: white;
 }
 
 h3 {
   font-family: Poppins;
+  font-size: 18px;
   text-align: center;
-  margin-top: 110px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-top: 10px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
   padding: 5px;
 }
-.amount {
-  font-family: "Poppins";
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-  background-color: white;
-  height: 300px;
-  border-radius: 10px;
 
-  margin-bottom: 50px;
-}
-.radio {
-  font-size: 20px;
-  font-weight: 500;
-
-  text-transform: capitalize;
-  display: inline-block;
-  vertical-align: middle;
-  color: #fff;
-  position: relative;
-  padding-left: 30px;
-
-  cursor: pointer;
-}
-.radio + .radio {
-  margin-left: 20px;
-}
-.radio input[type="radio"] {
-  display: none;
-}
-.radio span {
-  height: 20px;
-  width: 18px;
-  border-radius: 50%;
-  border: 3px solid #ffda15;
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 7px;
-}
-.radio span:after {
-  content: "";
-  height: 8px;
-  width: 8px;
-  background: #ffda15;
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  border-radius: 50%;
-  transition: 300ms ease-in-out 0s;
-}
-.radio input[type="radio"]:checked ~ span:after {
-  transform: translate(-50%, -50%) scale(1);
-}
 .amount input[type="text"] {
-  width: 90%;
-  height: 80%;
-  border: 1px solid black;
+  width: 40%;
+  height: 40%;
+  border: 1px solid white;
   border-radius: 8px;
   margin: 8px 0;
   outline: none;
-  padding: 8px;
+  padding: 4px;
   box-sizing: border-box;
   transition: 0.3s;
-  font-size: 16px;
+  font-size: 14px;
   font-family: Poppins;
+
   color: black;
+}
+
+.amount input[type="number"] {
+  width: 40%;
+  height: 40%;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin: 8px 0;
+  outline: none;
+  padding: 4px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  font-size: 14px;
+  font-family: Poppins;
+
+  color: black;
+}
+
+::placeholder {
+  color: black;
+  text-align: center;
 }
 
 .amount input[type="text"]:focus {
@@ -164,16 +131,16 @@ h2 {
 .btn {
   color: black;
   background: #ffda15;
-  font-size: 16px;
+  font-size: 14px;
   font-family: Poppins;
-  height: 50%;
+  height: 40%;
   cursor: pointer;
   margin: 10px;
   padding: 10px 20px;
   text-decoration: none;
   font-weight: 50;
   margin: auto;
-  border-color: black;
+  border-color: none;
 }
 .cs {
   border-radius: 8px;
@@ -186,11 +153,102 @@ h2 {
   background-color: black;
   border-color: #ffda15;
 }
-.box {
+.boxj {
   background-color: #1ee86f;
   border-radius: 10px;
 }
 
 .radio-group label {
+  color: white;
+}
+.main {
+  position: relative;
+  min-height: 113vh;
+  width: 600px;
+  border-radius: 8px;
+  background: linear-gradient(#c3a905, #6ccded);
+
+  box-shadow: 0px 5px 15px green;
+}
+
+.mains {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box .amount {
+  margin-top: 20px;
+}
+.radio-group {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.radio {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.radio__input {
+  display: none;
+}
+.radio__radio {
+  width: 1em;
+  height: 1em;
+  border: 2px solid #ffda15;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-sizing: border-box;
+  padding: 2px;
+}
+
+.radio__radio::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #6ced75;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.15s;
+}
+.radio__input:checked + .radio__radio::after {
+  transform: scale(1);
+}
+
+.n3 {
+  margin-left: 120px;
+}
+.n {
+  margin-left: 1px;
+}
+.n0 {
+  margin-left: 7px;
+}
+.n1 {
+  margin-left: 13px;
+}
+.n2 {
+  margin-left: 14px;
+}
+
+.co textarea {
+  background-color: white;
+  width: 240px;
+  height: 90px;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  font-size: 14px;
+  font-family: Poppins;
   color: black;
+
+  margin-bottom: 4px;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+.co textarea:focus {
+  border-color: #ffda15;
+  box-shadow: 0 0 8px 0 #ffda15;
 }

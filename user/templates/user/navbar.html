@@ -52,6 +52,8 @@
       </li>
     </ul>
   </div>
-  <span class="z mr-2">Hello, {{request.user}}</span>
-  <span class="z"><a href="/logout">Logout</a></span>
+  {% if request.user.is_authenticated %}
+    <span class="z mr-2">Hello, {{request.user}}</span>
+    <span class="z"><a href="/logout">Logout</a></span>
+  {% endif %}
 </nav>
