@@ -1,7 +1,7 @@
 from .forms import *
 from .models import *
-from django.contrib.auth.models import User
-from .decorators import unauthenticated_user
+from django.contrib.auth.models import User, Group
+from .decorators import unauthenticated_user, allowed_users, admin_only
 
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -19,7 +19,15 @@ def registerPage(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+
+            group = Group.objects.get(name='organizations')
+            user.groups.add(group)
+            Organization.objects.create(
+                user=user,
+                orgname=user.username,
+            )
+
             return redirect('/login')
     context = {'form': form}
     return render(request, 'user/register.html', context)
@@ -98,6 +106,7 @@ def createevent(request):
 
 
 @login_required(login_url='/login')
+@allowed_users(allowed_roles='organizations')
 def orghome(request, pk):
     organization = Organization.objects.get(id=pk)
     events = organization.event_set.all()
@@ -107,10 +116,12 @@ def orghome(request, pk):
     return render(request, 'user/organizationhomepage.html', context)
 
 
+@login_required(login_url='/login')
+@admin_only
 def adminhome(request, pk):
     user = User.objects.get(id=pk)
     context = {'user': user}
-    return render(request, 'user/adminhomepage.html')
+    return render(request, 'user/adminhomepage.html', context)
 
 
 def singleevent(request, pk):
@@ -120,6 +131,7 @@ def singleevent(request, pk):
 
 
 @login_required(login_url='/login')
+@allowed_users(allowed_roles='organizations')
 def create_event(request):
     form = EventForm()
     if request.method == 'POST':
@@ -133,6 +145,7 @@ def create_event(request):
 
 
 @login_required(login_url='/login')
+@allowed_users(allowed_roles='organizations')
 def update_event(request, pk):
     event = Event.objects.get(id=pk)
     form = EventForm(instance=event)
@@ -146,6 +159,7 @@ def update_event(request, pk):
 
 
 @login_required(login_url='/login')
+@allowed_users(allowed_roles='organizations')
 def delete_event(request, pk):
     event = Event.objects.get(id=pk)
     if request.method == 'POST':

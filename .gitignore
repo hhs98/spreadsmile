@@ -1,6 +1,7 @@
 env
 **/*.pyc
 **/__pycache__
+**/migrations
 .DS_Store
 *.env
 
@@ -9,3 +10,4 @@ env
 !.travis.yml
 /.env
 /.vscode
+**/migrations/__init__.py
