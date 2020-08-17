@@ -3,50 +3,7 @@ body {
   font-family: poppins;
   padding-bottom: 220px;
 }
-.navbar {
-  background-color: #170c0c;
-  margin-top: 2px;
-  height: 50px;
-  text-transform: uppercase;
-  font-family: poppins;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  margin-left: 0px;
-  top: 0;
-  position: sticky;
-  z-index: 1;
-}
-a.nav-link {
-  color: white;
-}
-span.navbar-toggler-icon {
-  background-image: url("/static/images/op.webp");
-}
-.t {
-  width: 140px;
 
-  background-size: cover;
-  grid-area: image;
-}
-.na ul li a:hover {
-  color: black;
-  background: #ffda15;
-  border-radius: 5px;
-}
-.drop a {
-  color: black;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-}
-
-.dropdown-item:hover {
-  background: #ffda15;
-  border-radius: 10px;
-}
-.dropdown-menu {
-  background: white;
-  padding: 0;
-}
 h2 {
   color: white;
   font-size: 15px;

@@ -1,5 +1,6 @@
 from .forms import *
 from .models import *
+from django.contrib.auth.models import User
 from .decorators import unauthenticated_user
 
 from django.shortcuts import render, redirect
@@ -34,7 +35,7 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('back', pk=user.id)
+            return redirect('admin', pk=user.id)
         else:
             messages.info(request, 'Username OR password is incorrect')
 
@@ -104,6 +105,12 @@ def orghome(request, pk):
     context = {'organization': organization,
                'events': events, 'event_count': event_count}
     return render(request, 'user/organizationhomepage.html', context)
+
+
+def adminhome(request, pk):
+    user = User.objects.get(id=pk)
+    context = {'user': user}
+    return render(request, 'user/adminhomepage.html')
 
 
 def singleevent(request, pk):

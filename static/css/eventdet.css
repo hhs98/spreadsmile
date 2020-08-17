@@ -1,57 +1,9 @@
-body{
-    background-color:#170c0c;
-    font-family:poppins;
-    font-size:14px;
-
-}
-
-.navbar{
-     background-color:#170c0c;
-   margin-top:2px;
-    height:50px;
-    text-transform: uppercase;
+body {
+  background-color: #170c0c;
   font-family: poppins;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  margin-left:0px;
-  top: 0;
-  position: sticky;
-  z-index: 1;
-    
-}
-a.nav-link{
-    color:white;
-}
-span.navbar-toggler-icon{
-    background-image:url('images/op.webp');
-}
-.t{
-    width:140px;
-    margin-bottom:5px;
-   background-size: cover;
-  grid-area: image;
-   
-   
-}
-.na ul li a:hover {
-  color: black;
-  background: #ffda15;
-  border-radius: 5px;
-}
-.drop a {
-  color: black;
-  font-size: 15px;
-  letter-spacing: 0.5px;
+  font-size: 14px;
 }
 
-.dropdown-item:hover {
-  background: #ffda15;
-  border-radius: 10px;
-}
-.dropdown-menu {
-  background: white;
-  padding: 0;
-}
 .display-4 {
   font-size: 16px;
   font-weight: bold;
@@ -66,14 +18,11 @@ span.navbar-toggler-icon{
   background: none;
 }
 
-
-
-
 .ss {
   border: 1px solid;
   border-color: black;
   border-radius: 10px;
-font-size:14px;
+  font-size: 14px;
   cursor: pointer;
   background-color: #ffda15;
 }
@@ -154,37 +103,33 @@ h2 {
   color: white;
   padding: 8px 10px;
 }
-div.progress{
-    background-color:#170c0c;
-    text-align: center;
-    margin-left:100px;
-    
-   
+div.progress {
+  background-color: #170c0c;
+  text-align: center;
+  margin-left: 100px;
 }
-div.progress-bar{
-    font-size:15px;
+div.progress-bar {
+  font-size: 15px;
 }
 
-.sr{
-    margin-left:100px;
+.sr {
+  margin-left: 100px;
 }
-.display-3{
-    color:#ffda15;
-    font-weight:bold;
-    font-size:18px;
-    text-align: center;
+.display-3 {
+  color: #ffda15;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
 }
 .pic {
   width: 100%;
-
- 
 }
-.new{
-    float: right;
-    width: 250px;
-    height:250;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+.new {
+  float: right;
+  width: 250px;
+  height: 250;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }

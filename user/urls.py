@@ -15,6 +15,7 @@ urlpatterns = [
     path('donatebelongings/', views.donatebelongings),
     path('createevent/', views.createevent),
     path('orghome/<str:pk>/', views.orghome, name="back"),
+    path('adminhome/<str:pk>/', views.adminhome, name="admin"),
     path('event/<str:pk>/', views.singleevent, name="event"),
     path('create_event/', views.create_event),
     path('update_event/<str:pk>/', views.update_event),
