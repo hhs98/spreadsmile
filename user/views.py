@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
+from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
 # for payment
@@ -27,7 +27,9 @@ def registerPage(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            user = form.save(commit=False)
+            user.active = False
+            user.save()
 
             group = Group.objects.get(name='organizations')
             user.groups.add(group)
@@ -90,14 +92,15 @@ def allevents(request):
     return render(request, 'user/viewevents.html', context)
 
 
-def donatemoney(request):
-    form = MoneyDonatorForm
+def donatemoney(request, pk):
+    event = Event.objects.get(id=pk)
+    form = MoneyDonatorForm(initial={'event': event.id})
     if request.method == 'POST':
         form = MoneyDonatorForm(request.POST)
         if form.is_valid():
             form.save()
-            donator = MoneyDonatorInfo.objects.get(
-                name=request.POST.get('name'), email=request.POST.get('email'), contact=request.POST.get('contact'))
+            donator = MoneyDonatorInfo.objects.get(name=request.POST.get(
+                'name'), email=request.POST.get('email'), contact=request.POST.get('contact'))
             return redirect('pay', pk=donator.id)
     context = {'form': form}
     return render(request, 'user/donatemoney.html', context)
@@ -180,14 +183,29 @@ def orghome(request, pk):
 @admin_only
 def adminhome(request, pk):
     user = User.objects.get(id=pk)
-    context = {'user': user}
+    inactive_users = User.objects.filter(is_active=False)
+    context = {'user': user, 'inactive_users': inactive_users}
     return render(request, 'user/adminhomepage.html', context)
 
 
 def singleevent(request, pk):
     event = Event.objects.get(id=pk)
-    context = {'event': event}
-    return render(request, 'user/eventdet.html', context)
+    donators = event.moneydonatorinfo_set.all()
+
+    donators_count = donators.count()
+    if(donators_count == 0):
+        raised = 0
+        raised_p = 0
+        context = {'event': event,
+                   'donators_count': donators_count, 'raised': raised, 'raised_p': raised_p}
+        return render(request, 'user/eventdet.html', context)
+    else:
+        get_total = donators.aggregate(Sum('amount'))
+        raised = get_total['amount__sum']
+        raised_p = (get_total['amount__sum']/event.goal)*100
+        context = {'event': event,
+                   'donators_count': donators_count, 'raised': raised, 'raised_p': raised_p}
+        return render(request, 'user/eventdet.html', context)
 
 
 @login_required(login_url='/login')

@@ -52,6 +52,22 @@ h3 {
   color: black;
 }
 
+.amount select {
+  width: 40%;
+  height: 40%;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin: 8px 0;
+  outline: none;
+  padding: 4px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  font-size: 14px;
+  font-family: Poppins;
+
+  color: black;
+}
+
 ::placeholder {
   color: black;
   text-align: center;

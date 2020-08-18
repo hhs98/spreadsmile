@@ -22,6 +22,7 @@ class Event(models.Model):
         Organization, null=True, on_delete=models.SET_NULL)
     event_title = models.CharField(max_length=200)
     description = models.TextField(max_length=500)
+    goal = models.IntegerField(null=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -29,6 +30,8 @@ class Event(models.Model):
 
 
 class MoneyDonatorInfo(models.Model):
+    event = models.ForeignKey(
+        Event, null=True, on_delete=models.SET_NULL, blank=True)
     amount = models.IntegerField(null=True, blank=True)
     name = models.CharField(max_length=264, blank=True)
     email = models.CharField(max_length=264, blank=True)

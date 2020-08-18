@@ -27,7 +27,7 @@
       <img class=" img-fluid d-block w-100 new" src="{% static 'images/f.jpg' %}" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="img-fluid d-block w-100 new" src="{% static 'images/a.png' %}" alt="Second slide">
+      <img class="img-fluid d-block w-100 new" src="{% static 'images/f.jpg' %}" alt="Second slide">
     </div>
     <div class="carousel-item">
       <img class=" img-fluid d-block w-100 new" src="{% static 'images/f.jpg' %}" alt="Third slide">
@@ -47,17 +47,17 @@
       <h1 class="display-3">Event Progress</h1><br>
      <p class="lead sr">Donors</p>
       <div class="progress "style="height:25px;">
-  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" style="width: 60%" >60%</div>
+  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" style="width: {{donators_count}}0%" >{{donators_count}}</div>
 </div> <br>
 <p class="lead sr">Raised</p>
 <div class="progress" style="height:25px;">
-  <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" style="width: 70%" >70%</div>
+  <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" style="width: {{raised_p}}%" >{{raised}}/{{event.goal}}</div>
 </div><br><p class="lead sr">Goal</p>
     <div class="progress" style="height:25px;">
-  <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 100%" >100%</div>
+  <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 100%" >{{event.goal}}</div>
 </div>
      <br><br> <div class="text-center">
-         <a class="btn ss btn-lg" href="/donatemoney" role="button"
+         <a class="btn ss btn-lg" href="/donatemoney/{{event.id}}" role="button"
               >Donate Now</a
             >
      </div>

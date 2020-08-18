@@ -42,18 +42,14 @@
           </div>
             
             <div class="text-center">
-              <form action="" method="POST">
+              <form action="" method="POST" autocomplete="off">
               {% csrf_token %}
-              <input type="text" placeholder="Or Enter Amount" /><br>
+              {{form.event}}<br>
               {{form.amount}}<br>
-              <input type="text" placeholder="Enter Your Name" /><br>
               {{form.name}}<br>
-              <input type="text" placeholder="Enter Your Email " /><br>
               {{form.email}}<br>
-              <input class="b" type="text" placeholder="Enter Contact Number" /><br>
               {{form.contact}}<br>
               <div class="form-group co">
-                <textarea  placeholder="Enter Your Opinion"></textarea><br>
                 {{form.opinion}}
               </div>
               <input type="submit" class="btn cs" value="Proceed to pay">

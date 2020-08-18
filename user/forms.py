@@ -19,6 +19,19 @@ class CreateUserForm(UserCreationForm):
 
 
 class MoneyDonatorForm(forms.ModelForm):
+    # event = forms.ChoiceField(widget=forms.Select(
+    #     attrs={'selected': 'One Taka Meal'}))
+    amount = forms.IntegerField(widget=forms.NumberInput(
+        attrs={'placeholder': 'Enter Amount'}))
+    name = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Enter Name'}))
+    email = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Enter Email'}))
+    contact = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Enter Contact'}))
+    opinion = forms.CharField(widget=forms.Textarea(
+        attrs={'placeholder': 'Enter Your Opinion'}))
+
     class Meta:
         model = MoneyDonatorInfo
         fields = '__all__'
