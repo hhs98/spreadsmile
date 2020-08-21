@@ -1,18 +1,57 @@
-{% extends "user/base.html" %}
-{% load static %}
+{% extends "user/base.html" %} 
+{% load static %} 
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'css/insertevent.css' %}" />
 {% endblock css %}
-
+ 
 {% block content %}
-    <hr>
-    <br><br>
+<div class="mains">
+  <div class="main">
     <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-    
-        <input class="btn btn-primary" type="submit" >
-    </form>
-    <br><br>
-    <hr>
-{% endblock %}
+    {% csrf_token %}
+    <div class="form">
+      <h4>Insert Events Here</h4>
+      <div class="input-box">
+        {{form.organization_name}}
+      </div>
+      <div class="input-box">
+        {{form.event_title}}
+      </div>
+      <div class="input-box">
+        {{form.goal}}
+      </div>
+      <br />
+      <div class="form-group co">
+        {{form.description}}
+      </div>
+
+      <div class="form-group text-center">
+        <select class="custom-select" id="validationTooltip03">
+          <option value="1"> Event Type</option>
+          <option value="1">Money</option>
+          <option value="2">Belongings</option>
+          <option value="2">Both</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-3 ce text-center">
+        <label for="validationTooltip05">
+          <span class="material-icons"> add_photo_alternate </span>Choose a
+          Photo</label
+        >
+        <input
+          type="file"
+          class="form-control"
+          id="validationTooltip05"
+          accept="image/*"
+        />
+      </div>
+      <div class="input-box text-center z">
+        <button class="btn cs" type="submit">Insert Event</button>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
+{% endblock content %}

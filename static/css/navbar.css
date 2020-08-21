@@ -1,10 +1,10 @@
 .navbar {
   background-color: #170c0c;
   text-transform: uppercase;
-  font-family: poppins;
-  font-size: 15px;
+  font-family: Montserrat;
+  font-size: 1rem;
   letter-spacing: 0.5px;
-  margin-left: 0px;
+  margin: 30px 0px;
 }
 a.nav-link {
   color: white;
@@ -42,4 +42,15 @@ span.navbar-toggler-icon {
 .z {
   color: white;
   text-decoration: none;
+}
+
+.ss {
+  border-radius: 10px;
+  transition: 0.3s all ease;
+}
+.ss:hover {
+  color: white;
+  transform: translateY(-3px);
+  background-color: black;
+  border-color: #ffda15;
 }

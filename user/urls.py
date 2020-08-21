@@ -15,7 +15,6 @@ urlpatterns = [
     path('payment/<str:pk>/', views.payment, name="pay"),
     path('status/', views.complete, name="status"),
     path('donatebelongings/', views.donatebelongings),
-    path('createevent/', views.createevent),
     path('orghome/<str:pk>/', views.orghome, name="back"),
     path('adminhome/<str:pk>/', views.adminhome, name="admin"),
     path('event/<str:pk>/', views.singleevent, name="event"),

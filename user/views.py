@@ -40,7 +40,7 @@ def registerPage(request):
 
             return redirect('/login')
     context = {'form': form}
-    return render(request, 'user/register.html', context)
+    return render(request, 'user/registration.html', context)
 
 
 @unauthenticated_user
@@ -154,21 +154,6 @@ def donatebelongings(request):
 
 
 @login_required(login_url='/login')
-def createevent(request):
-
-    form = EventForm()
-
-    if request.method == 'POST':
-        form = EventForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('/allevents')
-
-    context = {'form': form}
-    return render(request, 'user/createevent.html', context)
-
-
-@login_required(login_url='/login')
 @allowed_users(allowed_roles='organizations')
 def orghome(request, pk):
     organization = Organization.objects.get(id=pk)
@@ -214,6 +199,7 @@ def create_event(request):
     form = EventForm()
     if request.method == 'POST':
         form = EventForm(request.POST)
+        print(form.is_valid())
         if form.is_valid():
             form.save()
             return redirect('/')

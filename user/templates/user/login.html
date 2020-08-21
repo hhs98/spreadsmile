@@ -1,53 +1,64 @@
-{% extends "user/base.html" %}
-{% load static %}
-
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/registration.css' %}" />
-{% endblock css %}
-
-{% block content %}
-      <div class="cont">
-        <div class="form sign-in">
-          <h5>Sign In</h5>
-          <form method="POST" action="">
-          {% csrf_token %}
-          <label>
-            <span>Username</span>
-            <input type="text" name="username" />
-          </label>
-          <label>
-            <span>Password</span>
-            <input type="password" name="password" />
-          </label>
-          <div class="sin">
-            <a href="viewevents.html"
-              ><button class="submit" type="submit">Sign In</button></a
-            >
-            <a href="#"><p class="forgot-pass">Forgot Password ?</p></a>
-          </div>
-          </form>
-          <div class="text-center">
-          {% for message in messages %}
-            {{message}}
-          {% endfor %}
-          </div>
-          <div class="text-center">Don't have an account <a href="/register">SignUp</a></div>
-          <div class="social-media">
-            <ul>
-              <a href="#"
-                ><li><img src="{% static 'images/facebook.png' %}" /></li
-              ></a>
-              <a href=""
-                ><li><img src="{% static 'images/twitter.png' %}" /></li
-              ></a>
-              <a href="#"
-                ><li><img src="{% static 'images/linkedin.png' %}" /></li
-              ></a>
-              <a href="#"
-                ><li><img src="{% static 'images/instagram.png' %}" /></li
-              ></a>
-            </ul>
-          </div>
+{% extends "user/base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+{% endblock css %} {% block content %}
+<div class="mains">
+  <div class="main">
+    <div class="form">
+      <h4>Sign In Here</h4>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="input-box">
+          <input
+            name="username"
+            type="text"
+            id="e"
+            required
+            placeholder=" Enter your email"
+          />
+          <div class="valid-feedback">Email is available</div>
         </div>
-      </div>
+        <div class="input-box">
+          <input
+            name="password"
+            type="password"
+            id="d"
+            required
+            placeholder=" Enter your password"
+          />
+          <div class="invalid-feedback">This Password is not Safe</div>
+        </div>
+        <div class="input-box">
+          <a href="organizationhomepage.html">
+            <input type="submit" id="submit" value="Sign In"
+          /></a>
+        </div>
+        <br />
+        <div>
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+        </div>
+        <a href="" class="sa"><p>Forget password?</p></a>
+        <a href="/register" class="sb"
+          ><p>New here? Please go for Sign Up</p></a
+        >
+        <div class="social-media">
+          <ul>
+            <a href="#"
+              ><li>
+                <img class="wr" src="{% static 'images/facebook.png'%}" /></li
+            ></a>
+            <a href=""
+              ><li><img src="{% static 'images/twitter.png'%}" /></li
+            ></a>
+            <a href="#"
+              ><li><img src="{% static 'images/linkedin.png'%}" /></li
+            ></a>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
