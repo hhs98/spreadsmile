@@ -1,19 +1,23 @@
-{% extends "user/base.html" %}
-{% load static %}
-
-{% block css %}
-{% endblock css %}
-    
-{% block content %}
-<hr>
-<br><br>
-<p class="display-4">Are you sure you want to delete the event?</p>
-<h1>{{event.event_title}}</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    <a class="btn btn-warning" href="/orghome/{{event.organization_name.id}}">Cancel</a>
-    <input class="btn btn-danger" type="submit" value="Confirm">
-</form>
-<br><br>
-<hr>
+{% extends "user/base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/delete.css' %}" />
+{% endblock css %} {% block content %}
+<div class="mains">
+  <div class="main">
+    <div class="forms">
+      <h4>Are you sure you want to delete {{event.event_title}}?</h4>
+      <br /><br />
+      <form action="" method="POST">
+      {% csrf_token %}
+        <div class="input-box text-center z">
+          <a
+            class="btn btn-warning"
+            href="/orghome/{{event.organization_name.id}}"
+            >Cancel</a
+          >
+          <input class="btn btn-danger" type="submit" value="Delete" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

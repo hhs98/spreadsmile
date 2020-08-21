@@ -13,7 +13,6 @@ body {
   position: relative;
   width: 650px;
   border-radius: 8px;
-
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
 }
@@ -55,13 +54,14 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  padding: 40px;
   text-align: center;
   justify-content: center;
   align-items: center;
   z-index: 1;
 }
 .form h4 {
-  margin-top: 40px;
+  margin-top: 0;
   margin-bottom: 0;
   margin-right: 0;
   text-align: center;
@@ -86,7 +86,7 @@ body {
   border-radius: 8px;
   outline: none;
   font-size: 14px;
-  color: #fff;
+  color: black;
   letter-spacing: 0.5px;
   text-transform: capitalize;
   padding: 5px;
@@ -95,18 +95,12 @@ body {
   transition: 0.3s;
   font-size: 14px;
   font-family: Poppins;
-
-  color: black;
 }
-.form .input-box input[type="text"]:focus {
+.form .input-box input[type="password"]:focus {
   border-color: #ffda15;
   box-shadow: 0 0 8px 0 #ffda15;
 }
 .form .input-box input[type="email"]:focus {
-  border-color: #ffda15;
-  box-shadow: 0 0 8px 0 #ffda15;
-}
-.form .input-box input[type="password"]:focus {
   border-color: #ffda15;
   box-shadow: 0 0 8px 0 #ffda15;
 }
@@ -126,12 +120,18 @@ body {
 .form a {
   text-decoration: none;
 }
-
+.form .sa p {
+  color: white;
+  font-size: 15px;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
 .form .sb p {
   color: white;
   font-size: 15px;
   text-decoration: none;
-  letter-spacing: 0.5px;
+
   text-transform: capitalize;
 }
 .social-media {

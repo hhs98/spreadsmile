@@ -1,73 +1,36 @@
 body {
   background-color: #170c0c;
   font-family: poppins;
-  padding-bottom: 360px;
-}
-.navbar {
-  background-color: #170c0c;
-  text-transform: uppercase;
-  font-family: poppins;
   font-size: 15px;
-  letter-spacing: 0.5px;
-  margin-bottom: 80px;
-  top: 0;
-  position: sticky;
-  z-index: 1;
-}
-.na ul li a:hover {
-  color: black;
-  background: #ffda15;
-}
-
-.navbar a {
-  color: white;
-}
-.drop a {
-  color: black;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-.dropdown-menu {
-  background: white;
-  padding: 0;
-}
-.dropdown-item:hover {
-  background: #ffda15;
 }
 .container {
   color: white;
   min-height: 1500px;
 }
-.row {
-  min-height: 200px;
+.dis {
+  margin-top: 45px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
 }
-.abtn {
-  font-family: poppins;
+.lead {
   font-size: 16px;
-  cursor: pointer;
-  background: #ffda15;
-  border: 1px solid white;
+  letter-spacing: 0.5px;
 }
-.btn-lg {
-  width: 200px;
-  font-family: poppins;
-  font-size: 16px;
-  cursor: pointer;
-  background: #ffda15;
-  border: 1px solid white;
-}
+
 .btn-lg:hover {
   color: white;
   background-color: black;
   border-color: #ffda15;
 }
-.col img {
-  width: 120px;
-  height: 120x;
-  border-radius: 150px;
+/* .col img {
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
   grid-area: image;
-  margin-bottom: 10px;
-}
+  margin-bottom: 8px;
+  margin-right: 100px;
+} */
+
 .table-dark {
   border-color: red;
   background-color: #170c0c;
@@ -94,12 +57,11 @@ th {
 }
 
 .a:hover {
-  background: #ffda15;
+  background: white;
   color: black;
 }
 .insert {
-  width: 190px;
-  color: white;
+  color: black;
   border: 1px solid white;
 }
 .insert:hover {
@@ -113,112 +75,46 @@ th {
   border-color: #ffda15;
 }
 
-.image img {
-  height: 10%;
-  width: 15%;
+.st {
+  margin-bottom: 80px;
+}
+.main {
+  margin-bottom: 25px;
+}
+.card {
+  margin: auto;
+  margin-bottom: 5px;
+  background: linear-gradient(#054f38, black);
+  box-shadow: 0px 2px 10px green;
+}
+.card-body h5 {
+  font-size: 17px;
+  color: white;
+  background-size: cover;
   border-radius: 5px;
-  grid-area: image;
-  margin-bottom: 10px;
 }
-
-.image img:hover {
-  transform: scale(2.15);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+.card-body p {
+  font-size: 16px;
+  color: white;
 }
-.image img {
-  transition: 0.5s ease;
+.sl {
+  font-size: 15px;
   cursor: pointer;
-  margin: 30px;
+  background: #ffda15;
+  color: black;
+  border: 1px solid black;
 }
-
-h2 {
-  color: white;
-  font-size: 15px;
-  text-align: left;
-  font-family: poppins;
-}
-.footer-top {
-  background: #170c0c;
-  padding-top: 100px;
-
-  padding-bottom: 0px;
-  padding-left: 5px;
-  margin-top: 60px;
-  margin-right: 40px;
-}
-
-.segment-one {
-  font-family: poppins;
-  font-size: 15px;
-  margin: 10px 0;
-  padding-left: 50px;
-}
-.segment-two h2 {
-  font-family: poppins;
-}
-.segment-two ul {
-  margin: 0px;
-  padding: 0;
-  font-size: 16px;
-  list-style: none;
-  color: white;
-}
-.segment-two ul li {
-  border-bottom: 1px solid #1ee86f;
-  line-height: 40px;
-  font-family: poppins;
-  font-size: 15px;
-}
-.segment-two ul li a {
-  color: white;
-  font-size: 15px;
-  font-family: poppins;
-  text-decoration: none;
-}
-.segment-three h2 {
-  font-family: poppins;
-  font-size: 15px;
-  padding-right: 0;
-  padding-left: 0;
-}
-.segment-three ul {
-  margin: 0;
-  padding: 0;
-  font-family: poppins;
-  font-size: 15px;
-  list-style: none;
-  color: white;
-}
-.segment-four h2 {
-  color: white;
-  font-family: poppins;
-  font-size: 15px;
-  float: center;
-}
-.segment-four h2:before {
-  content: "|";
-  color: #c65039;
-  padding-right: 10px;
-}
-.segment-four p {
-  color: white;
-  font-family: poppins;
-  font-size: 15px;
-}
-.segment-four a {
-  background: #1ee86f;
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  border-radius: 10px;
-  margin-top: 0px;
-}
-.segment-four a i {
-  font-size: 16px;
-  color: white;
-  padding: 8px 10px;
+.df {
+  border-color: black;
 }
 
 input[type="file"] {
   display: none;
+}
+.q {
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 1px;
+
+  margin-bottom: 20px;
 }

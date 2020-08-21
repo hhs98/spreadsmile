@@ -1,112 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+{% extends "user/base.html" %}
+{% load static %}
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/adminhomepage.css' %}" />
+{% endblock css %}
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/adminhomepage.css" />
-    <title>Admin Homepage</title>
-  </head>
-  <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg nav">
-        <div class="collapse navbar-collapse na" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">What we do</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="gallary.html">Gallary</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="signup.html">Join us</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-              >
-                Donate
-              </a>
-              <div class="dropdown-menu drop" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="donatebelongings.html">
-                  Belongings</a
-                >
-
-                <div class="drop"></div>
-                <a class="dropdown-item" href="donatemoney.html">Money</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="row text-center align-items-center">
+{% block content %}
+      <div class="row text-center st">
         <div class="col">
-          <button
-            type="button"
-            class="btn abtn btn-lg"
-            data-toggle="collapse"
+         
+         <h3 class="dis">Hello {{request.user}}</h3>
+          
+        
+         </div>
+        <div class="col">
+          <img class="img-fluid rounded-circle" src="{% static 'images/logo.png' %}"  alt="coming soon" />
+        </div>
+      </div> 
+      
+       
+     
+      <h5 class="q">
+          Manage Your Task
+          </h5> <br>
+      <div class="main">
+      <div class="row text-center align-items-center">
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+          <div class="card" style="width: 15rem;">
+  <div class="card-body">
+    <h5 class="card-title">Total Organizations</h5>
+    <p class="card-text">10</p>
+    <a href="#" class="btn sl "data-toggle="collapse"
             data-target="#table1"
             aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            Manage Approval</button
-          ><br /><br />
-          <button
-            type="button"
-            class="btn btn-lg"
-            data-toggle="collapse"
+            aria-controls="collapseExample">Manage Organizations</a>
+  </div>
+</div>
+           
+             </div> <br><br>
+             
+             
+              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="card" style="width: 15rem;">
+  <div class="card-body">
+    <h5 class="card-title">Total Events</h5>
+    <p class="card-text">10</p>
+    <a href="#" class="btn sl"data-toggle="collapse"
             data-target="#table2"
             aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            View Donor Details
-          </button>
-          <br />
-          <br />
-
-          <button
-            type="button"
-            class="btn btn-lg"
-            data-toggle="collapse"
+            aria-controls="collapseExample">View Events</a>
+  </div>
+</div>
+           
+             </div> <br><br> <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="card" style="width: 15rem;">
+  <div class="card-body">
+    <h5 class="card-title">  Donors Details </h5>
+    <p class="card-text">10</p>
+    <a href="#" class="btn sl " data-toggle="collapse"
             data-target="#table3"
             aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            Upload Image
-          </button>
-        </div>
-
-        <div class="col">
-          <img src="images/ssms.jpg" class="round-circle" alt="coming soon" />
-        </div>
+            aria-controls="collapseExample">View Details</a>
+  </div>
+</div>
+           
+             </div><br> 
+             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="card" style="width: 15rem;">
+  <div class="card-body">
+    <h5 class="card-title">Uploaded Photos</h5>
+    <p class="card-text">10</p>
+    <a href="#" class="btn sl "data-toggle="collapse"
+            data-target="#table4"
+            aria-expanded="false"
+            aria-controls="collapseExample">View Photos</a>
+  </div>
+</div>
+           
+          </div>
+           </div>  
       </div>
-      <br /><br />
-      <div class="collapse evnts" id="table1">
+      
+      
+     <div class="collapse evnts" id="table1">
         <table class="table table-bordered table-dark">
           <thead>
             <tr>
@@ -122,91 +98,92 @@
           <tbody>
             <tr>
               <th class="a" scope="row">1</th>
-              <td class="a">Donate</td>
+              <td class="a">Dream</td>
               <td class="a">a@23</td>
               <td class="a">Uttara</td>
               <td class="a">01xxxxx</td>
-              <td class="a">22-10</td>
+              <td class="a">2210</td>
               <th scope="col">
-                <button type="button" class="btn btn-success mr-2">
-                  Approve
-                </button>
+                <a href="#"
+                  ><button type="button" class="btn btn-success mr-2">
+                    Approve
+                  </button></a><br><br><a href="#"
+                  ><button type="button" class="btn btn-danger mr-2">
+                    Delete
+                  </button></a>
+                 
               </th>
             </tr>
-            <tr>
-              <th class="a" scope="row">2</th>
-              <td class="a">Help</td>
-              <td class="a">b@23</td>
-              <td class="a">Uttara</td>
-              <td class="a">01xxxxx</td>
-              <td class="a">26-10</td>
-              <th scope="col">
-                <button type="button" class="btn btn-success mr-2">
-                  Approve
-                </button>
-              </th>
-            </tr>
-          </tbody>
+      
+      </tbody>
         </table>
-      </div>
-      <br /><br />
-      <div class="collapse donordetails" id="table2">
+        </div><br><div class="collapse donordetails" id="table2">
         <table class="table table-bordered table-dark">
           <thead>
             <tr>
               <th scope="col" class="a">No.</th>
-              <th scope="col" class="a">Donor Name</th>
-              <th scope="col" class="a">Address</th>
-              <th scope="col" class="a">Contact Number</th>
-              <th scope="col" class="a">Opinion</th>
-              <th scope="col" class="a">Action</th>
+              <th scope="col" class="a">Event Name</th>
+              <th scope="col" class="a">Hosted By</th>
+              <th scope="col" class="a">Event Type</th>
+              <th scope="col" class="a"> Motto</th>
+              <th scope="col" class="a">Event Goal</th>
+               <th scope="col" class="a">Raised</th>
+              <th scope="col" class="a">Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row" class="a">1</th>
-              <td class="a">Keya</td>
-              <td class="a">Uttara</td>
+              <td class="a">Covid-19</td>
+                <td class="a">Dream</td>
+              <td class="a">Money</td>
+              <td class="a">Help</td>
+              <td class="a">100000tk</td>
+              <td class="a">10000tk</td>
+              <th scope="col">
+                <a href="#"
+                  ><button type="button" class="btn btn-warning mr-2">
+                    Disable
+                  </button></a
+                > 
+              </th>
+            </tr>
+            </tbody>
+        </table>
+      </div> <br>
+      <div class="collapse opinions" id="table3">
+        <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col" class="a">No.</th>
+              <th scope="col" class="a">Donor Name</th>
+              <th scope="col" class="a">Contact Number</th>
+              <th scope="col" class="a">Email</th>
+              <th scope="col" class="a">Opinion</th>
+              <th scope="col" class="a">Action</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="a">1</th>
+              <td class="a">Saida</td>
+              
               <td class="a">0100000000</td>
-              <td class="a">Lorem ipsum</td>
+              <td class="a">saida@gmail.com</td>
+              <td class="a">Lorem ipsum dolor</td>
               <th scope="col">
                 <a href="viewmoread.html"
-                  ><button type="button" class="btn btn-primary mr-2">
+                  ><button type="button" class="btn btn-warning mr-2">
                     View More
                   </button></a
-                >
-              </th>
+                > 
+                </th>
             </tr>
-            <tr>
-              <th scope="row" class="a">2</th>
-              <td class="a">S</td>
-              <td class="a">Tongi</td>
-              <td class="a">0100000000</td>
-              <td class="a">Lorem ipsum</td>
-              <th scope="col">
-                <button type="button" class="btn btn-primary mr-2">
-                  View More
-                </button>
-              </th>
-            </tr>
-
-            <tr>
-              <th scope="row" class="a">3</th>
-              <td class="a">Saida</td>
-              <td class="a">Tongi</td>
-              <td class="a">0100000000</td>
-              <td class="a">Lorem ipsum</td>
-              <th scope="col">
-                <button type="button" class="btn btn-primary mr-2">
-                  View More
-                </button>
-              </th>
-            </tr>
-          </tbody>
+            </tbody>
         </table>
       </div>
-      <br />
-      <div class="collapse evnts" id="table3">
+      <div class="collapse evnts" id="table4">
         <table class="table table-bordered table-dark">
           <thead>
             <tr>
@@ -232,71 +209,12 @@
                 </th>
               </div>
               <th scope="col">
-                <button type="button" class="btn btn-success mr-2">
-                  Approve
-                </button>
+                <a href="#"><button type="button" class="btn btn-success mr-2">
+                  Submit
+                </button></a>
               </th>
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <footer>
-        <div class="footer-top">
-          <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12 segment-one">
-              <h2>Spread Smiles</h2>
-            </div>
-            <div class="col-md-3 col-sm-6 ctwoxs-12 segment-two">
-              <h2>Links</h2>
-              <ul>
-                <li><a href="about.html">What we do</a></li>
-                <li><a href="signup.html">Join us</a></li>
-                <li><a href="gallary.html">Gallary</a></li>
-                <li><a href="viewevents.html">Donate</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3 col-sm-6 ctwoxs-12 segment-three">
-              <h2>Contact</h2>
-              <ul>
-                <li>Uttara,Dhaka,Bangladesh</li>
-                <li>01xxxxxxxx</li>
-              </ul>
-            </div>
-            <div class="col-md-3 col-sm-6 ctwoxs-12 segment-four">
-              <h2>Follow us</h2>
-              <p>
-                Follow us on our social media profile in order to keep updated
-                with our recent task
-              </p>
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <script
-      src="https://kit.fontawesome.com/832cd3cad9.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+      </div><br><br>
+{% endblock content %}

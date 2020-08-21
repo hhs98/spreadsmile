@@ -2,37 +2,7 @@ body {
   background-color: #170c0c;
   font-family: poppins;
 }
-.navbar {
-  background-color: #170c0c;
-  text-transform: uppercase;
-  font-family: poppins;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  margin-bottom: 80px;
-  top: 0;
-  position: sticky;
-  z-index: 1;
-}
-.na ul li a:hover {
-  color: black;
-  background: #ffda15;
-}
 
-.navbar a {
-  color: white;
-}
-.drop a {
-  color: black;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-.dropdown-menu {
-  background: white;
-  padding: 0;
-}
-.dropdown-item:hover {
-  background: #ffda15;
-}
 .container {
   min-height: 1500px;
 }
