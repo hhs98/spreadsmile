@@ -3,11 +3,6 @@ body {
   font-family: poppins;
   font-size: 15px;
 }
-@media (max-width: 768px) {
-  div.st {
-    margin-top: 300px;
-  }
-}
 .container {
   color: white;
   min-height: 1500px;
@@ -116,41 +111,4 @@ th {
   margin: auto;
   font-size: 20px;
   margin-bottom: 20px;
-}
-.st {
-  margin-bottom: 80px;
-  margin-top: 100px;
-}
-.main {
-  margin-bottom: 25px;
-}
-.card {
-  margin-left: 60px;
-  margin-bottom: 5px;
-  background-color: #1ee86f;
-}
-.card-body h5 {
-  font-size: 17px;
-  color: black;
-  background-size: cover;
-  border-radius: 5px;
-}
-.card-body p {
-  font-size: 16px;
-  color: black;
-}
-.sl {
-  font-size: 15px;
-  cursor: pointer;
-  background: #ffda15;
-  color: black;
-  border: 1px solid black;
-}
-.df {
-  border-color: black;
-}
-.r h5 {
-  text-transform: capitalize;
-  letter-spacing: 1px;
-  font-weight: 200;
 }
