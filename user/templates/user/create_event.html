@@ -1,21 +1,4 @@
 {% extends "user/base.html" %}
-{% comment %} <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Event</title>
-</head>
-<body>
-    <form method="POST" action="/createevent/">
-		{% csrf_token %}
-		{{form}}
-		<input type="submit" name="Create Event">
-	</form>
-</body>
-</html> {% endcomment %}
-
-
 {% load static %}
 
 {% block css %}
@@ -28,29 +11,15 @@
       </div>
       <div class="main">
       
-        <form method="POST" action="/createevent/" class="needs-validation" novalidate>
+        <form method="POST" action="" class="needs-validation" novalidate>
         {% csrf_token %}
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="validationTooltip01">Event Title</label>
-              {% comment %} <input
-                type="text"
-                class="form-control"
-                id="validationTooltip01"
-                placeholder="Enter event name"
-                required
-              /> {% endcomment %}
               {{form.event_title}}
             </div>
             <div class="col-md-6 mb-3 email">
               <label for="validationTooltip02">Organization Name</label>
-              {% comment %} <input
-                type="email"
-                class="form-control"
-                id="validationTooltip02"
-                placeholder="Enter organization name"
-                required
-              /> {% endcomment %}
               {{form.organization_name}}
             </div>
           </div>
@@ -64,14 +33,6 @@
           </div>
           <br />
           <div class="form-group co">
-            {% comment %} <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              placeholder="Enter moto of the event"
-              rows="5"
-              cols="20"
-              required
-            ></textarea> {% endcomment %}
             {{form.description}}
           </div>
           <div class="col-md-6 mb-3 ce">

@@ -1,9 +1,24 @@
 from django.shortcuts import render, redirect
 
+
 from .models import *
 from .forms import *
 
 # Create your views here.
+
+
+def register(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        print(form)
+        print(form.is_valid())
+        if(form.is_valid()):
+            form.save()
+            return redirect('/')
+
+    context = {'form': form}
+    return render(request, 'user/register.html', context)
 
 
 def home(request):
@@ -38,20 +53,6 @@ def donatebelongings(request):
     return render(request, 'user/donatebelongings.html')
 
 
-# def createevent(request):
-
-#     form = EventForm()
-
-#     if request.method == 'POST':
-#         form = EventForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#         return redirect('/allevents')
-
-#     context = {'form': form}
-#     return render(request, 'user/createevent.html', context)
-
-
 def orghome(request, pk):
     organization = Organization.objects.get(id=pk)
     events = organization.event_set.all()
@@ -65,3 +66,39 @@ def singleevent(request, pk):
     event = Event.objects.get(id=pk)
     context = {'event': event}
     return render(request, 'user/eventdet.html', context)
+
+
+def create_event(request):
+
+    form = EventForm()
+
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/allevents')
+
+    context = {'form': form}
+    return render(request, 'user/create_event.html', context)
+
+
+def update_event(request, pk):
+    event = Event.objects.get(id=pk)
+    form = EventForm(instance=event)
+    if request.method == 'POST':
+        form = EventForm(request.POST, instance=event)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'form': form}
+    return render(request, 'user/create_event.html', context)
+
+
+def delete_event(request, pk):
+    event = Event.objects.get(id=pk)
+    if request.method == 'POST':
+        event.delete()
+        bar = event.organization_name.id
+        return redirect('back', pk=bar)
+    context = {'event': event}
+    return render(request, 'user/delete_event.html', context)

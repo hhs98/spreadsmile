@@ -94,7 +94,7 @@
         <th scope="col" class="a">Event details</th>
         <th scope="col" class="a">Event Type</th>
         <th scope="col">
-          <a href="" class="btn df btn-warning insert">
+          <a href="/create_event" class="btn df btn-warning insert">
             Create a New Event
           </a>
         </th>
@@ -108,10 +108,10 @@
         <td class="a">{{event.description|slice:":70"}}</td>
         <td class="a">Belongings</td>
         <td>
-          <a href="" class="btn btn-primary btn-sm mr-2">
+          <a href="/update_event/{{event.id}}" class="btn btn-primary btn-sm mr-2">
             Update
           </a>
-         <a href="" class="btn btn-danger btn-sm">
+         <a href="/delete_event/{{event.id}}" class="btn btn-danger btn-sm">
             Delete
           </a>
         </td>

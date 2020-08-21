@@ -1,0 +1,68 @@
+{% extends "user/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+{% endblock css %}
+
+{% block content %}
+      <div class="cont">
+        <div class="form sign-up">
+          <h5>Sign Up</h5>
+          <form action="" method="POST">
+          {% csrf_token %}
+          <label>
+            <span>Username</span>
+            {{form.username}}
+          </label>
+          <label>
+            <span>Email</span>
+            {{form.email}}
+          </label>
+
+          <label>
+            <span>Password</span>
+            {{form.password1}}
+          </label>
+          <label>
+            <span>Confirm Password</span>
+            {{form.password2}}
+          </label>
+          <div class="sin">
+            <button class="submit" type="submit">Sign Up</button>
+          </div>
+          </form>
+          <div class="social-media">
+            <ul>
+              <a href="#"
+                ><li><img src="{% static 'images/facebook.png' %}" /></li
+              ></a>
+              <a href=""
+                ><li><img src="{% static 'images/twitter.png' %}" /></li
+              ></a>
+              <a href="#"
+                ><li><img src="{% static 'images/linkedin.png' %}" /></li
+              ></a>
+              <a href="#"
+                ><li><img src="{% static 'images/instagram.png' %}" /></li
+              ></a>
+            </ul>
+          </div>
+          <div class="ig">
+            <div class="im">
+              <br /><br />
+              <div class="img-text m-up">
+                <h3>One of us?</h3>
+                <p>If you already has an account just sign in!</p>
+              </div>
+              <br /><br /><br /><br /><br /><br /><br /><br /><br />
+              <div class="text-center align-items-center">
+                <a class="cs" href="#" role="button">Sign In</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br /><br />
+{% endblock content %}
