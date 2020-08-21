@@ -17,7 +17,7 @@ class EventForm(forms.ModelForm):
 
 class CreateUserForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Enter Username'}))
+        attrs={'placeholder': 'Enter Organization Name'}))
     email = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Enter Email'}))
     password1 = forms.CharField(widget=forms.TextInput(

@@ -4,6 +4,7 @@ env
 **/migrations
 .DS_Store
 *.env
+*.sqlite3
 
 # Accept these files in the repository
 !.gitignore
