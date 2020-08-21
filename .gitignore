@@ -3,8 +3,8 @@ env
 **/__pycache__
 **/migrations
 .DS_Store
-*.env
 *.sqlite3
+*.env
 
 # Accept these files in the repository
 !.gitignore
