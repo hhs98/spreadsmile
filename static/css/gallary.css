@@ -16,6 +16,7 @@ h2 {
 .gallary {
   border-color: #ccc;
   overflow: hidden;
+  border-radius: 8px;
 }
 .gallary img {
   width: 100%;
@@ -30,7 +31,8 @@ h2 {
 }
 .des {
   padding: 15px;
-  background: white;
+  background: linear-gradient(#ffc107, #054f38);
+  color: white;
   z-index: 10;
 }
 
@@ -41,7 +43,8 @@ h2 {
 h1 {
   text-align: center;
   color: white;
-  font-size: 25px;
+  font-size: 33px;
+  font-weight: bold;
 }
 
 .page {

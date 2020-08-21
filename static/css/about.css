@@ -6,14 +6,15 @@ body {
 }
 
 .display-4 {
-  font-size: 18px;
+  font-size: 33px;
   font-weight: bold;
   color: white;
 }
 .lead {
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   letter-spacing: 1px;
+  text-align: justify;
 }
 .jumbotron {
   background: none;
@@ -119,4 +120,7 @@ h2 {
   font-size: 16px;
   color: white;
   padding: 8px 10px;
+}
+img {
+  border-radius: 8px;
 }

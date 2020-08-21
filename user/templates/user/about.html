@@ -11,7 +11,8 @@
       <div class="row">
         <div class="col">
           <div class="jumbotron">
-            <h1 class="display-4">Spread Smiles</h1>
+            <h1 class="display-4">About Us</h1>
+            <br>
             <p class="lead">
               This platform is necessary when the people are interested to
               donate belongings or money to assist the helpless people.We assist
@@ -19,17 +20,40 @@
               donations for helping the helpless peoples.By using this platform
               people can easily donate.
             </p>
-            <hr class="my-4" />
-
-            <a class="btn ss btn-lg" href="signup.html" role="button"
-              >Join Us</a
-            >
           </div>
         </div>
 
-        <div class="col pic">
-          <img src="{% static 'images/f.jpg'%}" class="img-fluid" alt="Responsive image" />
+       <div class="col">
+    <div
+      id="carouselExampleCaptions"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <ol class="carousel-indicators">
+        <li
+          data-target="#carouselExampleCaptions"
+          data-slide-to="0"
+          class="active"
+        ></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'images/fs.jpg' %}" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block"></div>
         </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/fs2.jpg' %}" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block"></div>
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/f.jpg' %}" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block"></div>
+        </div>
+      </div>
+    </div>
+  </div>
       </div>
       
 {% endblock content %}
