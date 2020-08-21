@@ -1,6 +1,7 @@
 env
 **/*.pyc
 **/__pycache__
+**/migrations/
 .DS_Store
 *.env
 *.sqlite3
@@ -11,8 +12,3 @@ env
 /.env
 /.vscode
 **/migrations/__init__.py
-**/migrations/0002_organization_user.py
-**/migrations/0003_moneydonatorinfo.py
-**/migrations/0004_moneydonatorinfo_amount.py
-**/migrations/0005_auto_20200818_1142.py
-**/migrations/0006_auto_20200818_1431.py
