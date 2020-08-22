@@ -8,7 +8,7 @@
 {% block content %}
 <div class="mains">
   <div class="main">
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form">
       <h4>Insert Events Here</h4>
@@ -36,16 +36,11 @@
       </div>
 
       <div class="col-md-6 mb-3 ce text-center">
-        <label for="validationTooltip05">
+        <label for="id_cover">
           <span class="material-icons"> add_photo_alternate </span>Choose a
           Photo</label
         >
-        <input
-          type="file"
-          class="form-control"
-          id="validationTooltip05"
-          accept="image/*"
-        />
+        {{form.cover}}
       </div>
       <div class="input-box text-center z">
         <button class="btn cs" type="submit">Insert Event</button>

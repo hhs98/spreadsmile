@@ -24,22 +24,23 @@ from django.views.decorators.csrf import csrf_exempt
 @unauthenticated_user
 def registerPage(request):
     form = CreateUserForm()
+    orgform = OrganizationForm()
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
-        if form.is_valid():
+        orgform = OrganizationForm(request.POST)
+        if form.is_valid() and orgform.is_valid():
             user = form.save(commit=False)
             user.active = False
             user.save()
-
             group = Group.objects.get(name='organizations')
             user.groups.add(group)
-            Organization.objects.create(
-                user=user,
-                orgname=user.username,
-            )
-
+            org = orgform.save(commit=False)
+            org.user = user
+            org.orgname = user.username
+            org.orgemail = user.email
+            org.save()
             return redirect('/login')
-    context = {'form': form}
+    context = {'form': form, 'orgform': orgform}
     return render(request, 'user/registration.html', context)
 
 
@@ -79,10 +80,6 @@ def about(request):
 
 def gallary(request):
     return render(request, 'user/gallary.html')
-
-
-def signup(request):
-    return render(request, 'user/signup.html')
 
 
 def allevents(request):
@@ -214,7 +211,7 @@ def update_event(request, pk):
     event = Event.objects.get(id=pk)
     form = EventForm(instance=event)
     if request.method == 'POST':
-        form = EventForm(request.POST, instance=event)
+        form = EventForm(request.POST, request.FILES, instance=event)
         if form.is_valid():
             form.save()
             return redirect('/')

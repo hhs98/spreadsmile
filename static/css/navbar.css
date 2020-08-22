@@ -14,9 +14,12 @@ span.navbar-toggler-icon {
 }
 .t {
   width: 120px;
-
+  transition: 0.3s all ease;
   background-size: cover;
   grid-area: image;
+}
+.t:hover {
+  transform: translateY(-3px);
 }
 .na ul li a:hover {
   color: black;
@@ -52,5 +55,5 @@ span.navbar-toggler-icon {
   color: white;
   transform: translateY(-3px);
   background-color: black;
-  border-color: #ffda15;
+  border: 2px solid #ffda15;
 }

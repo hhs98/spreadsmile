@@ -5,14 +5,19 @@ body {
 }
 
 .display-4 {
-  font-size: 16px;
+  font-size: 33px;
   font-weight: bold;
-  color: white;
-}
-.lead {
-  font-size: 15px;
+  font-family: poppins;
   color: white;
   letter-spacing: 1px;
+  line-height: 50px;
+}
+.lead {
+  font-size: 14px;
+  font-family: poppins;
+  color: white;
+  text-align: justify;
+  line-height: 30px;
 }
 .jumbotron {
   background: none;
@@ -106,15 +111,11 @@ h2 {
 div.progress {
   background-color: #170c0c;
   text-align: center;
-  margin-left: 100px;
 }
 div.progress-bar {
   font-size: 15px;
 }
 
-.sr {
-  margin-left: 100px;
-}
 .display-3 {
   color: #ffda15;
   font-weight: bold;
@@ -132,4 +133,12 @@ div.progress-bar {
   border-top-right-radius: 15px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+}
+.carousel-inner {
+  max-height: 360px;
+  border-radius: 8px;
+}
+
+img {
+  border-radius: 8px;
 }

@@ -17,14 +17,27 @@ class CreateUserForm(UserCreationForm):
         attrs={'placeholder': 'Enter Organization Name'}))
     email = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Enter Email'}))
-    password1 = forms.CharField(widget=forms.TextInput(
+    password1 = forms.CharField(widget=forms.PasswordInput(
         attrs={'placeholder': 'Enter Password'}))
-    password2 = forms.CharField(widget=forms.TextInput(
+    password2 = forms.CharField(widget=forms.PasswordInput(
         attrs={'placeholder': 'Confirm Password'}))
 
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+
+class OrganizationForm(forms.ModelForm):
+    orgcontact = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Enter Contact Number'}))
+    orglicense = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Enter License Number'}))
+    orgaddress = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Enter Address Number'}))
+
+    class Meta:
+        model = Organization
+        fields = ['orgcontact', 'orgaddress', 'orglicense']
 
 
 class MoneyDonatorForm(forms.ModelForm):

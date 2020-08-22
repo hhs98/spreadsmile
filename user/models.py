@@ -20,6 +20,7 @@ class Organization(models.Model):
 class Event(models.Model):
     organization_name = models.ForeignKey(
         Organization, null=True, on_delete=models.SET_NULL)
+    cover = models.ImageField(default="f.jpg", null=True, blank=False)
     event_title = models.CharField(max_length=200)
     description = models.TextField(max_length=500)
     goal = models.IntegerField(null=True)
