@@ -1,0 +1,28 @@
+{% extends "user/base.html" %} 
+{% load static %} 
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/delete.css' %}" />
+{% endblock css %} 
+
+{% block content %}
+<div class="mains">
+  <div class="main">
+    <div class="forms">
+      <h4>Are you sure you want to Approve {{org.username}}?</h4>
+      <br /><br />
+      <form action="" method="POST">
+      {% csrf_token %}
+        <div class="input-box text-center z">
+          <a
+            class="btn btn-warning"
+            href="/adminhome/{{request.user.id}}"
+            >Cancel</a
+          >
+          <input class="btn btn-success" type="submit" value="Approve" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

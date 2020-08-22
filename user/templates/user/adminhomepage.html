@@ -14,7 +14,7 @@
         
          </div>
         <div class="col">
-          <img class="img-fluid rounded-circle" src="{% static 'images/logo.png' %}"  alt="coming soon" />
+          <img class="img-fluid rounded-circle" src="{% static 'images/woman.png' %}"  alt="coming soon" />
         </div>
       </div> 
       
@@ -29,7 +29,7 @@
           <div class="card" style="width: 15rem;">
   <div class="card-body">
     <h5 class="card-title">Total Organizations</h5>
-    <p class="card-text">10</p>
+    <p class="card-text">{{inactive_users.count}}</p>
     <a href="#" class="btn sl "data-toggle="collapse"
             data-target="#table1"
             aria-expanded="false"
@@ -44,7 +44,7 @@
           <div class="card" style="width: 15rem;">
   <div class="card-body">
     <h5 class="card-title">Total Events</h5>
-    <p class="card-text">10</p>
+    <p class="card-text">{{events.count}}</p>
     <a href="#" class="btn sl"data-toggle="collapse"
             data-target="#table2"
             aria-expanded="false"
@@ -86,7 +86,7 @@
         <table class="table table-bordered table-dark">
           <thead>
             <tr>
-              <th scope="col" class="a">No.</th>
+              <th scope="col" class="a">ID No</th>
               <th scope="col" class="a">Organization Name</th>
               <th scope="col" class="a">Email</th>
               <th scope="col" class="a">Address</th>
@@ -96,24 +96,32 @@
             </tr>
           </thead>
           <tbody>
+          {% for inactive_user in inactive_users %}
             <tr>
-              <th class="a" scope="row">1</th>
-              <td class="a">Dream</td>
-              <td class="a">a@23</td>
-              <td class="a">Uttara</td>
-              <td class="a">01xxxxx</td>
-              <td class="a">2210</td>
+              <th class="a" scope="row">{{inactive_user.id}}</th>
+              <td class="a">{{inactive_user.orgname}}</td>
+              <td class="a">{{inactive_user.orgemail}}</td>
+              <td class="a">{{inactive_user.orgaddress}}</td>
+              <td class="a">{{inactive_user.orgcontact}}</td>
+              <td class="a">{{inactive_user.orglicense}}</td>
               <th scope="col">
-                <a href="#"
+              {% if inactive_user.user.is_active %}
+              <a href="/deapprove/{{inactive_user.user.id}}"
+                  ><button type="button" class="btn btn-danger mr-2">
+                    Deactivate
+                  </button></a>
+              {% else %}
+              <a href="/approve/{{inactive_user.user.id}}"
                   ><button type="button" class="btn btn-success mr-2">
                     Approve
-                  </button></a><br><br><a href="#"
-                  ><button type="button" class="btn btn-danger mr-2">
-                    Delete
                   </button></a>
+              {% endif %}
+                
                  
               </th>
             </tr>
+          {% endfor %}
+            
       
       </tbody>
         </table>
@@ -132,14 +140,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row" class="a">1</th>
-              <td class="a">Covid-19</td>
-                <td class="a">Dream</td>
+          {% for event in events %}
+          <tr>
+              <th scope="row" class="a">{{event.id}}</th>
+              <td class="a">{{event.event_title}}</td>
+                <td class="a">{{event.organization_name}}</td>
               <td class="a">Money</td>
               <td class="a">Help</td>
-              <td class="a">100000tk</td>
-              <td class="a">10000tk</td>
+              <td class="a">{{event.goal}}</td>
+              <td class="a">{{event.raised}}</td>
               <th scope="col">
                 <a href="#"
                   ><button type="button" class="btn btn-warning mr-2">
@@ -148,7 +157,9 @@
                 > 
               </th>
             </tr>
-            </tbody>
+          {% endfor %}
+            
+          </tbody>
         </table>
       </div> <br>
       <div class="collapse opinions" id="table3">

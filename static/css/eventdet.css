@@ -27,95 +27,31 @@ body {
   border: 1px solid;
   border-color: black;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   background-color: #ffda15;
+  font-weight: bold;
 }
 .ss:hover {
   color: white;
   background-color: black;
   border-color: #ffda15;
 }
-h2 {
-  color: white;
-  font-size: 18px;
-  text-align: left;
-}
-.footer-top {
-  background: #170c0c;
-  padding-top: 100px;
-  padding-bottom: 50px;
-  padding-left: 20px;
-}
-.segment-one {
-  margin: 10px 0;
-  padding-left: 50px;
-}
-.segment-two h2 {
-  font-family: poppins;
-}
-.segment-two ul {
-  margin: 0px;
-  padding: 0;
 
-  list-style: none;
-  color: white;
-}
-.segment-two ul li {
-  border-bottom: 1px solid #1ee86f;
-  line-height: 40px;
-}
-.segment-two ul li a {
-  color: white;
-  text-decoration: none;
-}
-.segment-three h2 {
-  padding-right: 0;
-  padding-left: 0;
-}
-.segment-three ul {
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-  color: white;
-}
-.segment-four h2 {
-  color: white;
-
-  float: center;
-}
-.segment-four h2:before {
-  content: "|";
-  color: #c65039;
-  padding-right: 10px;
-}
-.segment-four p {
-  color: white;
-
-  font-size: 18px;
-}
-
-.segment-four a {
-  background: #1ee86f;
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  border-radius: 50%;
-}
-.segment-four a i {
-  font-size: 16px;
-  color: white;
-  padding: 8px 10px;
-}
 div.progress {
   background-color: #170c0c;
   text-align: center;
+  border: 2px solid #ffda15;
+  border-radius: 8px;
 }
 div.progress-bar {
-  font-size: 15px;
+  font-size: 20px;
+  border-radius: 0 8px 8px 0;
 }
 
+.sr {
+  font-size: 16px;
+}
 .display-3 {
   color: #ffda15;
   font-weight: bold;
@@ -134,11 +70,29 @@ div.progress-bar {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
-.carousel-inner {
-  max-height: 360px;
-  border-radius: 8px;
+.card {
+  margin: auto;
+  margin-bottom: 5px;
+  background: linear-gradient(#054f38, black);
+  box-shadow: 0px 2px 10px green;
+}
+.card-body h5 {
+  font-size: 18px;
+  color: white;
+  background-size: cover;
+  border-radius: 5px;
+}
+.card-body p {
+  font-size: 17px;
+  color: white;
 }
 
-img {
+.carousel-inner {
   border-radius: 8px;
+  max-height: 333px;
+}
+
+.jumbotron {
+  padding: 0rem 2rem;
+  margin: 0;
 }

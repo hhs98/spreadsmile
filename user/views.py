@@ -30,7 +30,7 @@ def registerPage(request):
         orgform = OrganizationForm(request.POST)
         if form.is_valid() and orgform.is_valid():
             user = form.save(commit=False)
-            user.active = False
+            user.is_active = False
             user.save()
             group = Group.objects.get(name='organizations')
             user.groups.add(group)
@@ -165,9 +165,35 @@ def orghome(request, pk):
 @admin_only
 def adminhome(request, pk):
     user = User.objects.get(id=pk)
-    inactive_users = User.objects.filter(is_active=False)
-    context = {'user': user, 'inactive_users': inactive_users}
+    events = Event.objects.all().order_by('-date_created')
+    #inactive_users = User.objects.filter(is_active=False)
+    inactive_users = Organization.objects.all().order_by('-orgdate')
+    context = {'user': user, 'inactive_users': inactive_users, 'events': events}
     return render(request, 'user/adminhomepage.html', context)
+
+
+@login_required(login_url='/login')
+@admin_only
+def apporg(request, pk):
+    org = User.objects.get(id=pk)
+    if request.method == 'POST':
+        org.is_active = True
+        org.save()
+        return redirect('admin', pk=request.user.id)
+    context = {'org': org}
+    return render(request, 'user/approve.html', context)
+
+
+@login_required(login_url='/login')
+@admin_only
+def deapporg(request, pk):
+    org = User.objects.get(id=pk)
+    if request.method == 'POST':
+        org.is_active = False
+        org.save()
+        return redirect('admin', pk=request.user.id)
+    context = {'org': org}
+    return render(request, 'user/deactive.html', context)
 
 
 def singleevent(request, pk):
@@ -180,14 +206,14 @@ def singleevent(request, pk):
         raised_p = 0
         context = {'event': event,
                    'donators_count': donators_count, 'raised': raised, 'raised_p': raised_p}
-        return render(request, 'user/eventdet.html', context)
+        return render(request, 'user/details.html', context)
     else:
         get_total = donators.aggregate(Sum('amount'))
         raised = get_total['amount__sum']
         raised_p = (get_total['amount__sum']/event.goal)*100
         context = {'event': event,
                    'donators_count': donators_count, 'raised': raised, 'raised_p': raised_p}
-        return render(request, 'user/eventdet.html', context)
+        return render(request, 'user/details.html', context)
 
 
 @login_required(login_url='/login')
