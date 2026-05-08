@@ -1,55 +1,52 @@
-{% extends "user/base.html" %}
-{% load static %}
+{% extends "user/base.html" %} 
+{% load static %} 
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/insertevent.css' %}" />
+<link rel="stylesheet" href="{% static 'css/insertevent.css' %}" />
 {% endblock css %}
-
+ 
 {% block content %}
-      <div class="head">
-        <h1>Insert your Events here</h1>
+<div class="mains">
+  <div class="main">
+    <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form">
+      <h4>Insert Events Here</h4>
+      <div class="input-box">
+        {{form.organization_name}}
       </div>
-      <div class="main">
-      
-        <form method="POST" action="" class="needs-validation" novalidate>
-        {% csrf_token %}
-          <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="validationTooltip01">Event Title</label>
-              {{form.event_title}}
-            </div>
-            <div class="col-md-6 mb-3 email">
-              <label for="validationTooltip02">Organization Name</label>
-              {{form.organization_name}}
-            </div>
-          </div>
-          <br />
-          <div class="form-group text-center">
-            <label for="validationTooltip03"> Event Type</label> <br />
-            <select class="custom-select" id="validationTooltip03" size="1">
-              <option value="1">Money</option>
-              <option value="2">Belongings</option></select
-            >
-          </div>
-          <br />
-          <div class="form-group co">
-            {{form.description}}
-          </div>
-          <div class="col-md-6 mb-3 ce">
-            <label for="validationTooltip05">
-              <span class="material-icons"> </span>Choose a Photo</label
-            >
-            <input
-              type="file"
-              class="form-control"
-              id="validationTooltip05"
-              accept="image/*"
-            />
-          </div>
+      <div class="input-box">
+        {{form.event_title}}
+      </div>
+      <div class="input-box">
+        {{form.goal}}
+      </div>
+      <br />
+      <div class="form-group co">
+        {{form.description}}
+      </div>
 
-          <div class="text-center">
-            <input class="btn cs" type="submit" value="Submit to Insert">
-          </div>
-        </form>
+      <div class="form-group text-center">
+        <select class="custom-select" id="validationTooltip03">
+          <option value="1"> Event Type</option>
+          <option value="1">Money</option>
+          <option value="2">Belongings</option>
+          <option value="2">Both</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-3 ce text-center">
+        <label for="id_cover">
+          <span class="material-icons"> add_photo_alternate </span>Choose a
+          Photo</label
+        >
+        {{form.cover}}
+      </div>
+      <div class="input-box text-center z">
+        <button class="btn cs" type="submit">Insert Event</button>
+      </div>
+      <br />
     </div>
+  </div>
+</div>
 {% endblock content %}

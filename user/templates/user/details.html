@@ -1,8 +1,13 @@
-{% extends "user/base.html" %} {% load static %} {% block css %}
+{% extends "user/base.html" %} 
+{% load static %} 
+
+{% block css %}
 <link rel="stylesheet" href="{% static 'css/eventdet.css' %}" />
-{% endblock css %} {% block content %}
+{% endblock css %} 
+
+{% block content %}
 <br />
-<div class="row mb-5">
+<div class="row">
   <div class="col">
     <div class="jumbotron">
       <h1 class="display-4">{{event.event_title}}</h1>
@@ -23,7 +28,7 @@
         <div class="carousel-item active">
           <img
             class="img-fluid d-block w-100 new"
-            src="{{event.cover.url}}"
+            src="{{ event.cover.url }}"
             alt="First slide"
           />
         </div>
@@ -63,30 +68,46 @@
     </div>
   </div>
 </div>
-<h1 class="display-3">Event Progress</h1>
+
 <br />
-<p class="lead sr">Donors</p>
-<div class="progress" style="height: 25px;">
-  <div
-    class="progress-bar progress-bar-striped bg-info progress-bar-animated"
-    style="width: {{donators_count}}0%"
-  >
-    {{donators_count}}
+<div class="row mt-5">
+  <div class="col">
+  <h1 class="display-3 mb-2">Event Progress</h1>
+    <div class="card text-center" style="width: 70%;">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <h5 class="card-title">Donors</h5>
+            <br />
+            <p>{{donators_count}}</p>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <h5 class="card-title">Time Left</h5>
+            <br />
+            <p>10 Days</p>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="btn ss btn-lg" href="/donatemoney/{{event.id}}" role="button">Donate Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  </div>
+
 <br />
-<p class="lead sr">Raised</p>
+<p class="lead sr text-center">Raised {{raised_p}}%</p>
 <div class="progress" style="height: 25px;">
   <div
     class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
     style="width: {{raised_p}}%"
   >
-    {{raised}}/{{event.goal}}
+    {{raised}}
   </div>
 </div>
 <br />
-<p class="lead sr">Goal</p>
-<div class="progress" style="height: 25px;">
+<p class="lead sr text-center">Goal</p>
+<div class="progress" style="height: 25px; border: none ">
   <div
     class="progress-bar progress-bar-striped bg-success progress-bar-animated"
     role="progressbar"
@@ -95,11 +116,8 @@
     {{event.goal}}
   </div>
 </div>
-<br /><br />
-<div class="text-center">
-  <a class="btn ss btn-lg" href="/donatemoney/{{event.id}}" role="button"
-    >Donate Now</a
-  >
-</div>
+<br />
+<br />
+
 
 {% endblock content %}

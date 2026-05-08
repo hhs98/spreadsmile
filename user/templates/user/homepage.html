@@ -59,9 +59,14 @@
   <div class="row">
   {% for event in events|slice:":3"  %}
     <div class="col-md-4 col-sm-12 col-xs-12">
-      <div class="card" style="width: 16rem;" ;>
+      <div class="card">
         <div class="image">
+        {% if event.cover %}
+          <img src="{{event.cover.url}}" alt="Coming soon" />
+        {% else %}
           <img src="{% static 'images/g.jpg' %}" alt="Coming soon" />
+        {% endif %}
+          
         </div>
         <div class="title">
           <h1>{{event.event_title}}</h1>

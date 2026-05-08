@@ -14,9 +14,12 @@ span.navbar-toggler-icon {
 }
 .t {
   width: 120px;
-
+  transition: 0.3s all ease;
   background-size: cover;
   grid-area: image;
+}
+.t:hover {
+  transform: translateY(-3px);
 }
 .na ul li a:hover {
   color: black;
@@ -25,8 +28,10 @@ span.navbar-toggler-icon {
 }
 .drop a {
   color: black;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: 0.5px;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .dropdown-item:hover {
@@ -47,10 +52,12 @@ span.navbar-toggler-icon {
 .ss {
   border-radius: 10px;
   transition: 0.3s all ease;
+  font-weight: bold;
+  font-size: 16px;
 }
 .ss:hover {
   color: white;
   transform: translateY(-3px);
   background-color: black;
-  border-color: #ffda15;
+  border: 2px solid #ffda15;
 }

@@ -9,6 +9,8 @@
 <div class="mains">
   <div class="main">
     <div class="form">
+    <form method="POST" action="">
+    {% csrf_token %}
       <h4>Sign Up Here</h4>
       <div class="input-box">
         {{form.username}}
@@ -25,15 +27,25 @@
         <div class="invalid-feedback">Passwords not matching</div>
       </div>
       <div class="input-box">
+        {{orgform.orgcontact}}
+      </div>
+      <div class="input-box">
+        {{orgform.orglicense}}
+      </div>
+      <div class="input-box">
+        {{orgform.orgaddress}}
+      </div>
+      <div class="input-box">
         <input type="submit" value="Sign Up">
       </div>
+      </form>
       <br />
 
       <a href="/login" class="sb"><p>One of us? just Sign-In!</p></a>
       <div class="social-media">
         <ul>
           <a href="#"
-            ><li><img class="wr" src="{% static 'images/facebook.svg'%}" /></li
+            ><li><img class="wr" src="{% static 'images/facebook.png'%}" /></li
           ></a>
           <a href=""
             ><li><img src="{% static 'images/twitter.png'%}" /></li

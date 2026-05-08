@@ -61,7 +61,12 @@
           aria-expanded="false"
         >{{request.user}}</a>
         <div class="dropdown-menu drop" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="">Update Profile</a>
+        {% if user.groups.all.0.name == "organizations" %}
+          <a class="dropdown-item" href="{% url 'back' pk=request.user.organization.id %}">Profile</a>
+        {% elif user.groups.all.0.name == "admins" %}
+          <a class="dropdown-item" href="{% url 'admin' pk=request.user.id %}">Dashboard</a>
+        {% endif %}
+          
           <a class="dropdown-item" href="/logout">Logout</a>
 
         </div>
