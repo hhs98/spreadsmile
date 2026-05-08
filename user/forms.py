@@ -1,18 +1,14 @@
 from django import forms
-from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-
-from .models import *
+from .models import Event, MoneyDonatorInfo, Organization
 
 
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = '__all__'
+        fields = ['cover', 'event_title', 'description', 'goal']
 
 
 class CreateUserForm(UserCreationForm):
@@ -44,8 +40,6 @@ class OrganizationForm(forms.ModelForm):
 
 
 class MoneyDonatorForm(forms.ModelForm):
-    # event = forms.ChoiceField(widget=forms.Select(
-    #     attrs={'selected': 'One Taka Meal'}))
     amount = forms.IntegerField(widget=forms.NumberInput(
         attrs={'placeholder': 'Enter Amount'}))
     name = forms.CharField(widget=forms.TextInput(
@@ -59,4 +53,4 @@ class MoneyDonatorForm(forms.ModelForm):
 
     class Meta:
         model = MoneyDonatorInfo
-        fields = '__all__'
+        fields = ['amount', 'name', 'email', 'contact', 'opinion']

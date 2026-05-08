@@ -21,12 +21,32 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hufd**+&$kva23#f9hk^p&e1qt85uf3ij-vn*0gnp7t-d82@!g'
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'hufd**+&$kva23#f9hk^p&e1qt85uf3ij-vn*0gnp7t-d82@!g',
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True').lower() in ('1', 'true', 'yes')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    h.strip()
+    for h in os.environ.get('ALLOWED_HOSTS', '').split(',')
+    if h.strip()
+]
+if DEBUG and not ALLOWED_HOSTS:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+
+# SSLCommerz — set SSLCOMMERZ_STORE_ID and SSLCOMMERZ_STORE_PASSWD in production
+SSLCOMMERZ_STORE_ID = os.environ.get(
+    'SSLCOMMERZ_STORE_ID', 'testbox'
+)
+SSLCOMMERZ_STORE_PASSWD = os.environ.get(
+    'SSLCOMMERZ_STORE_PASSWD', 'qwerty'
+)
+SSLCOMMERZ_USE_SANDBOX = os.environ.get(
+    'SSLCOMMERZ_USE_SANDBOX', 'True'
+).lower() in ('1', 'true', 'yes')
 
 
 # Application definition
