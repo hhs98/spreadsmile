@@ -67,9 +67,22 @@ def logoutUser(request):
     return redirect('/login')
 
 
+def register(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        print(form)
+        print(form.is_valid())
+        if(form.is_valid()):
+            form.save()
+            return redirect('/')
+
+    context = {'form': form}
+    return render(request, 'user/register.html', context)
+
+
 def home(request):
     events = Event.objects.all().order_by('-date_created')
-
     context = {'events': events}
     return render(request, 'user/homepage.html', context)
 
@@ -84,7 +97,6 @@ def gallary(request):
 
 def allevents(request):
     events = Event.objects.all().order_by('-date_created')
-
     context = {'events': events}
     return render(request, 'user/viewevents.html', context)
 
